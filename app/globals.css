@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+:root {
+  --prim: #E6CE00;
+  --black: #000;
+  --white: #fff;
+  --font-Exo: "Exo", sans-serif;
+  --font-luxurious: "Luxurious Roman", serif;
+
+  --transition-regular: 0.3s;
+  --transition-slow: 0.6s;
+}
+
+@theme {
+  --color-prim: #E6CE00;
+}
+
+.Exo {
+  font-family: var(--font-Exo);
+}
+
+.Luxurious {
+  font-family: var(--font-luxurious);
+}
+
+body {
+  overflow-x: hidden !important;
+}
