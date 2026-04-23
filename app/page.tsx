@@ -1,9 +1,11 @@
 import Image from "next/image";
+import Index from "./Pages/Index/Index";
+
 
 export default function Home() {
   return (
     <>
-      <h1>Orvena Landing Page</h1>
+      <Index />
     </>
   );
 }
