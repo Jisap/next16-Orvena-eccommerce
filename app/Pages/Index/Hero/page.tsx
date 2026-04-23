@@ -6,8 +6,26 @@ import "swiper/css"
 import "swiper/css/navigation"
 import { Icon } from "@iconify/react"
 
+const SOCIAL_ICONS = [
+  { icon: "mdi:facebook" },
+  { icon: "mdi:twitter" },
+  { icon: "mdi:youtube" },
+  { icon: "mdi:instagram" },
+]
 
+const HERO_SLIDES = [
+  { title: "JOGGIN & RUNNING", className: "hero-slide" },
+  { title: "FITNESS & YOGA", className: "hero-slide2" },
+  { title: "HIKING GEAR", className: "hero-slide3" },
+]
 
+const PROMO_MESSAGES = [
+  "Free and Easy Returns. Every Day.",
+  "Hassle-Free Returns. Anytime.",
+  "Secure Checkout With Full Protection.",
+  "Satisfaction Guaranteed On Every Purchase.",
+  "Trusted Products. Reliable Service Always.",
+]
 
 const Hero = () => {
   return (
@@ -18,7 +36,6 @@ const Hero = () => {
           <div className="w-full lg:w-1/2 hero-content pt-20">
             <div className="hero-content-wrap">
               <h1 className="Luxur text-7xl font-bold text-gray-700">30% Off</h1>
-
               <h3 className="Exo text-7xl font-light my-3 text-gray-700">Selected Styles</h3>
 
               <div className="my-8">
@@ -30,7 +47,6 @@ const Hero = () => {
                 <button className="btn border btn-left">
                   <span>Shop For Men</span>
                 </button>
-
                 <button className="btn border btn-right">
                   <span>Shop For Women</span>
                 </button>
@@ -48,7 +64,6 @@ const Hero = () => {
                   className="w-[80%] outline-none"
                   required
                 />
-
                 <button
                   type="submit"
                   className="text-[14px] text-gray-700 hover:text-black cursor-pointer font-semibold"
@@ -60,23 +75,15 @@ const Hero = () => {
 
             <div className="mt-10">
               <h2 className="text-gray-500 font-semibold text-xl Exo">FOLLOW US</h2>
-
               <div className="flex items-center gap-3 mt-4">
-                <span className="w-10 h-10 flex items-center justify-center cursor-pointer bg-gray-200 rounded-full hover:bg-black hover:text-white transition-all duration-300">
-                  <Icon icon="mdi:facebook" width={20} />
-                </span>
-
-                <span className="w-10 h-10 flex items-center justify-center cursor-pointer bg-gray-200 rounded-full hover:bg-black hover:text-white transition-all duration-300">
-                  <Icon icon="mdi:twitter" width={20} />
-                </span>
-
-                <span className="w-10 h-10 flex items-center justify-center cursor-pointer bg-gray-200 rounded-full hover:bg-black hover:text-white transition-all duration-300">
-                  <Icon icon="mdi:youtube" width={20} />
-                </span>
-
-                <span className="w-10 h-10 flex items-center justify-center cursor-pointer bg-gray-200 rounded-full hover:bg-black hover:text-white transition-all duration-300">
-                  <Icon icon="mdi:instagram" width={20} />
-                </span>
+                {SOCIAL_ICONS.map((item, index) => (
+                  <span
+                    key={index}
+                    className="w-10 h-10 flex items-center justify-center cursor-pointer bg-gray-200 rounded-full hover:bg-black hover:text-white transition-all duration-300"
+                  >
+                    <Icon icon={item.icon} width={20} />
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -89,59 +96,35 @@ const Hero = () => {
                   slidesPerView={1}
                   spaceBetween={5}
                   loop={true}
-                  autoplay={{
-                    delay: 2000
-                  }}
+                  autoplay={{ delay: 2000 }}
                   navigation={{
                     nextEl: ".hero-next",
-                    prevEl: ".hero-prev"
+                    prevEl: ".hero-prev",
                   }}
                   modules={[Autoplay, Navigation]}
                   className="hero-swiper"
                 >
-                  <SwiperSlide>
-                    <div className="hero-slide">
-                      <div className="hero-slide-info absolute bottom-23 md:bottom-50 left-10">
-                        <h2 className="bg-prim px-4 py-3 pb-4 text-3xl font-semibold rounded-md">JOGGIN & RUNNING</h2>
-
-                        <button className="px-4 py-3 bg-gray-700 my-2 ms-5 cursor-pointer hover:bg-gray-800 transition-all duration-300 rounded-md text-white text-2xl">
-                          Shop Now
-                        </button>
+                  {HERO_SLIDES.map((slide, index) => (
+                    <SwiperSlide key={index}>
+                      <div className={slide.className}>
+                        <div className="hero-slide-info absolute bottom-23 md:bottom-50 left-10">
+                          <h2 className="bg-prim px-4 py-3 pb-4 text-3xl font-semibold rounded-md">
+                            {slide.title}
+                          </h2>
+                          <button className="px-4 py-3 bg-gray-700 my-2 ms-5 cursor-pointer hover:bg-gray-800 transition-all duration-300 rounded-md text-white text-2xl">
+                            Shop Now
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  </SwiperSlide>
-
-                  <SwiperSlide>
-                    <div className="hero-slide2">
-                      <div className="hero-slide-info absolute bottom-23 mdbottom-50 md:bottom-50 left-10">
-                        <h2 className="bg-prim px-4 py-3 pb-4 text-3xl font-semibold rounded-md">FITNESS & YOGA</h2>
-
-                        <button className="px-4 py-3 bg-gray-700 my-2 ms-5 cursor-pointer hover:bg-gray-800 transition-all duration-300 rounded-md text-white text-2xl">
-                          Shop Now
-                        </button>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-
-                  <SwiperSlide>
-                    <div className="hero-slide3">
-                      <div className="hero-slide-info absolute bottom-23 mdbottom-50 md:bottom-50 left-10">
-                        <h2 className="bg-prim px-4 py-3 pb-4 text-3xl font-semibold rounded-md">HIKING GEAR</h2>
-
-                        <button className="px-4 py-3 bg-gray-700 my-2 ms-5 cursor-pointer hover:bg-gray-800 transition-all duration-300 rounded-md text-white text-2xl">
-                          Shop Now
-                        </button>
-                      </div>
-                    </div>
-                  </SwiperSlide>
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
 
                 <div className="flex">
-                  <button className="hero-prev z-10 absolute bottom-10 left-10 hero-prev cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
+                  <button className="hero-prev z-10 absolute bottom-10 left-10 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
                     <Icon icon="mdi:chevron-left" width="30" />
                   </button>
-
-                  <button className="hero-next z-10 absolute bottom-10 right-20 hero-prev cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
+                  <button className="hero-next z-10 absolute bottom-10 right-20 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
                     <Icon icon="mdi:chevron-right" width="30" />
                   </button>
                 </div>
@@ -157,52 +140,25 @@ const Hero = () => {
             slidesPerView={1}
             spaceBetween={5}
             loop={true}
-            autoplay={{
-              delay: 3000
-            }}
+            autoplay={{ delay: 3000 }}
             navigation={{
               nextEl: ".hero-next2",
-              prevEl: ".hero-prev2"
+              prevEl: ".hero-prev2",
             }}
             modules={[Autoplay, Navigation]}
           >
-            <SwiperSlide>
-              <p className="text-2xl text-gray-700 Exo">
-                Free and Easy Returns. Every Day.
-              </p>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <p className="text-2xl text-gray-700 Exo">
-                Hassle-Free Returns. Anytime.
-              </p>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <p className="text-2xl text-gray-700 Exo">
-                Secure Checkout With Full Protection.
-              </p>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <p className="text-2xl text-gray-700 Exo">
-                Satisfaction Guaranteed On Every Purchase.
-              </p>
-            </SwiperSlide>
-
-            <SwiperSlide>
-              <p className="text-2xl text-gray-700 Exo">
-                Trusted Products. Reliable Service Always.
-              </p>
-            </SwiperSlide>
+            {PROMO_MESSAGES.map((message, index) => (
+              <SwiperSlide key={index}>
+                <p className="text-2xl text-gray-700 Exo">{message}</p>
+              </SwiperSlide>
+            ))}
           </Swiper>
 
           <div className="md:flex hidden">
-            <button className="hero-prev2 z-10 absolute bottom-2 left-10 hero-prev2 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
+            <button className="hero-prev2 z-10 absolute bottom-2 left-10 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
               <Icon icon="mdi:chevron-left" width="30" />
             </button>
-
-            <button className="hero-next2 z-10 absolute bottom-2 right-20 hero-next2 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
+            <button className="hero-next2 z-10 absolute bottom-2 right-20 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
               <Icon icon="mdi:chevron-right" width="30" />
             </button>
           </div>
@@ -212,4 +168,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default Hero
