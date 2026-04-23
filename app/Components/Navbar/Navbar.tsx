@@ -117,8 +117,45 @@ const Navbar = () => {
               </Link>
             </div>
 
+            <button className="lg:hidden flex flex-col gap-[5px]" onClick={() => setOpen(!open)}>
+              <span
+                className={`block w-6 h-[3px] bg-black transition-all
+                ${open ? "rotate-45 translate-y-2" : ""}`
+                }></span>
 
+              <span
+                className={`block w-6 h-[3px] bg-black transition-all
+                ${open ? "opacity-0" : ""}`
+                }></span>
+
+              <span
+                className={`block w-6 h-[3px] bg-black transition-all
+                ${open ? "-rotate-45 -translate-y-2" : ""}`
+                }></span>
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          <div
+            className={`lg:hidden fixed top-[60px] left-0 w-full z-50 bg-white transition-all duration-300 ${open ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-6"
+              }`}>
+            <div className="mx-[5%] rounded-2xl shadow-2xl border border-white/10">
+              <nav className="flex flex-col px-6 py-6 gap-5">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`text-lg font-medium border-b border-black/10 ${pathname === link.href ? "text-purple-600" : "text-black hover:text-purple-600"
+                      }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          </div>
+
         </div>
 
       </div>
