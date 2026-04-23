@@ -90,6 +90,7 @@ body {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.411)
 }
 
+/* Ventana con forma de trapecio */
 .hero-slide-wrapper {
   width: 100%;
   transform: skew(-10deg) !important;
@@ -98,9 +99,21 @@ body {
   overflow: hidden;
 }
 
+/* Enderezamos el contenido */
+.hero-slide-content {
+  transform: skew(10deg);
+  /* Deshace el skew del contenedor para enderezar el contenido*/
+  width: 110%;
+  /* Hacemos más ancho para que no se vean los bordes del trapecio */
+  margin-left: -5%;
+  /* Reducimos el desplazamiento negativo para evitar cortes */
+}
+
+
 .hero-swiper {
   width: 100%;
 }
+
 
 .hero-slide {
   background-image: url(/Images/Hero-Slide1.webp);
@@ -161,7 +174,15 @@ body {
   .hero-slide-wrapper {
     transform: skew(0deg) !important;
   }
+
+  .hero-slide-content {
+    transform: skew(0deg) !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
 }
+
+
 
 @media (max-width: 600px) {
 

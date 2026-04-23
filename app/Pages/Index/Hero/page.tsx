@@ -89,8 +89,10 @@ const Hero = () => {
           </div>
 
           {/* Right Side */}
-          <div className="w-full lg:w-[65%] hero-right lg:translate-x-20">
+          {/* shrink-0 evitar que el contenedor de la imagen se encoja */}
+          <div className="w-full lg:w-[65%] hero-right lg:translate-x-20 shrink-0">
             <div className="hero-slide-wrapper">
+
               <div className="hero-slide-content">
                 <Swiper
                   slidesPerView={1}
@@ -107,7 +109,8 @@ const Hero = () => {
                   {HERO_SLIDES.map((slide, index) => (
                     <SwiperSlide key={index}>
                       <div className={slide.className}>
-                        <div className="hero-slide-info absolute bottom-23 md:bottom-50 left-10">
+                        <div className="hero-slide-info absolute bottom-23 md:bottom-50 left-16 lg:left-24">
+
                           <h2 className="bg-prim px-4 py-3 pb-4 text-3xl font-semibold rounded-md">
                             {slide.title}
                           </h2>
@@ -121,11 +124,11 @@ const Hero = () => {
                 </Swiper>
 
                 <div className="flex">
-                  <button className="hero-prev z-10 absolute bottom-10 left-10 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
-                    <Icon icon="mdi:chevron-left" width="30" />
+                  <button className="hero-prev z-10 absolute bottom-10 left-10 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-700">
+                    <Icon icon="mdi:chevron-left" width="24" />
                   </button>
-                  <button className="hero-next z-10 absolute bottom-10 right-20 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
-                    <Icon icon="mdi:chevron-right" width="30" />
+                  <button className="hero-next z-10 absolute bottom-10 right-20 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-700">
+                    <Icon icon="mdi:chevron-right" width="24" />
                   </button>
                 </div>
               </div>
@@ -155,17 +158,18 @@ const Hero = () => {
           </Swiper>
 
           <div className="md:flex hidden">
-            <button className="hero-prev2 z-10 absolute bottom-2 left-10 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
-              <Icon icon="mdi:chevron-left" width="30" />
+            <button className="hero-prev2 z-10 absolute bottom-2 left-10 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-700">
+              <Icon icon="mdi:chevron-left" width="24" />
             </button>
-            <button className="hero-next2 z-10 absolute bottom-2 right-20 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
-              <Icon icon="mdi:chevron-right" width="30" />
+            <button className="hero-next2 z-10 absolute bottom-2 right-20 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-700">
+              <Icon icon="mdi:chevron-right" width="24" />
             </button>
           </div>
         </div>
       </div>
+
     </>
   )
 }
 
-export default Hero
+export default Hero
