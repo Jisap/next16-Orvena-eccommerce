@@ -14,6 +14,7 @@ const Hero = () => {
     <>
       <div className="hero">
         <div className="ps-[5%] lg:ps-[10%] px-5 lg:px-0 w-full flex flex-col lg:flex-row justify-between items-center gap-5">
+          {/* Left Side */}
           <div className="w-full lg:w-1/2 hero-content pt-20">
             <div className="hero-content-wrap">
               <h1 className="Luxur text-7xl font-bold text-gray-700">30% Off</h1>
@@ -76,6 +77,74 @@ const Hero = () => {
                 <span className="w-10 h-10 flex items-center justify-center cursor-pointer bg-gray-200 rounded-full hover:bg-black hover:text-white transition-all duration-300">
                   <Icon icon="mdi:instagram" width={20} />
                 </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side */}
+          <div className="w-full lg:w-[65%] hero-right lg:translate-x-20">
+            <div className="hero-slide-wrapper">
+              <div className="hero-slide-content">
+                <Swiper
+                  slidesPerView={1}
+                  spaceBetween={5}
+                  loop={true}
+                  autoplay={{
+                    delay: 2000
+                  }}
+                  navigation={{
+                    nextEl: ".hero-next",
+                    prevEl: ".hero-prev"
+                  }}
+                  modules={[Autoplay, Navigation]}
+                  className="hero-swiper"
+                >
+                  <SwiperSlide>
+                    <div className="hero-slide">
+                      <div className="hero-slide-info absolute bottom-23 md:bottom-50 left-10">
+                        <h2 className="bg-prim px-4 py-3 pb-4 text-3xl font-semibold rounded-md">JOGGIN & RUNNING</h2>
+
+                        <button className="px-4 py-3 bg-gray-700 my-2 ms-5 cursor-pointer hover:bg-gray-800 transition-all duration-300 rounded-md text-white text-2xl">
+                          Shop Now
+                        </button>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+
+                  <SwiperSlide>
+                    <div className="hero-slide2">
+                      <div className="hero-slide-info absolute bottom-23 mdbottom-50 md:bottom-50 left-10">
+                        <h2 className="bg-prim px-4 py-3 pb-4 text-3xl font-semibold rounded-md">FITNESS & YOGA</h2>
+
+                        <button className="px-4 py-3 bg-gray-700 my-2 ms-5 cursor-pointer hover:bg-gray-800 transition-all duration-300 rounded-md text-white text-2xl">
+                          Shop Now
+                        </button>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+
+                  <SwiperSlide>
+                    <div className="hero-slide3">
+                      <div className="hero-slide-info absolute bottom-23 mdbottom-50 md:bottom-50 left-10">
+                        <h2 className="bg-prim px-4 py-3 pb-4 text-3xl font-semibold rounded-md">HIKING GEAR</h2>
+
+                        <button className="px-4 py-3 bg-gray-700 my-2 ms-5 cursor-pointer hover:bg-gray-800 transition-all duration-300 rounded-md text-white text-2xl">
+                          Shop Now
+                        </button>
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+
+                <div className="flex">
+                  <button className="hero-prev z-10 absolute bottom-10 left-10 hero-prev cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
+                    <Icon icon="mdi:chevron-left" width="30" />
+                  </button>
+
+                  <button className="hero-next z-10 absolute bottom-10 right-20 hero-prev cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
+                    <Icon icon="mdi:chevron-right" width="30" />
+                  </button>
+                </div>
               </div>
             </div>
           </div>
