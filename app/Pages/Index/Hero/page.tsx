@@ -150,6 +150,64 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      <div className="px-[5%] lg:px-[10%] py-10">
+        <div className="bg-gray-200 flex justify-center items-center text-center py-4 rounded-2xl relative">
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={5}
+            loop={true}
+            autoplay={{
+              delay: 3000
+            }}
+            navigation={{
+              nextEl: ".hero-next2",
+              prevEl: ".hero-prev2"
+            }}
+            modules={[Autoplay, Navigation]}
+          >
+            <SwiperSlide>
+              <p className="text-2xl text-gray-700 Exo">
+                Free and Easy Returns. Every Day.
+              </p>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <p className="text-2xl text-gray-700 Exo">
+                Hassle-Free Returns. Anytime.
+              </p>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <p className="text-2xl text-gray-700 Exo">
+                Secure Checkout With Full Protection.
+              </p>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <p className="text-2xl text-gray-700 Exo">
+                Satisfaction Guaranteed On Every Purchase.
+              </p>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <p className="text-2xl text-gray-700 Exo">
+                Trusted Products. Reliable Service Always.
+              </p>
+            </SwiperSlide>
+          </Swiper>
+
+          <div className="md:flex hidden">
+            <button className="hero-prev2 z-10 absolute bottom-2 left-10 hero-prev2 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
+              <Icon icon="mdi:chevron-left" width="30" />
+            </button>
+
+            <button className="hero-next2 z-10 absolute bottom-2 right-20 hero-next2 cursor-pointer w-12 h-12 bg-white backdrop-blur-md rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-all duration-300 shadow-md">
+              <Icon icon="mdi:chevron-right" width="30" />
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
