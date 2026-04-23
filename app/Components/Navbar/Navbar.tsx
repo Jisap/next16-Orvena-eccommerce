@@ -155,10 +155,92 @@ const Navbar = () => {
               </nav>
             </div>
           </div>
-
         </div>
-
       </div>
+
+      {/* Login/Register Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 h-screen flex items-center justify-center bg-black/80 backdrop-blur-sm">
+          <div className="relative bg-white border border-white/10 rounded-xl p-10 w-[450px] md:w-[500px] shadow-2xl animate-fadeIn">
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-5 right-5 text-4xl cursor-pointer text-black hover:rotate-90 transition-all dureation-500"
+            >
+              ✕
+            </button>
+
+            <h2 className="text-3xl font-semibold mb-8 text-black">
+              {isLogin ? "Login to Your Account" : "Register Your Account"}
+            </h2>
+
+            <form className="flex flex-col gap-4">
+              {!isLogin && (
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="w-full bg-gray-200/20 border-black/20 text-black px-4 py-3 rounded-xl focus:outline-none focus:border-black transition-all"
+                  required
+                />
+              )}
+
+              <input
+                type="email"
+                placeholder="Email"
+                className="w-full bg-gray-200/20 border-black/20 text-black px-4 py-3 rounded-xl focus:outline-none focus:border-black transition-all"
+                required
+              />
+
+              <input
+                type="password"
+                placeholder="Password"
+                className="w-full bg-gray-200/20 border-black/20 text-black px-4 py-3 rounded-xl focus:outline-none focus:border-black transition-all"
+                required
+              />
+
+              <button
+                type="submit"
+                className="w-full mt-3 bg-black text-white text-xl py-3 rounded-xl font-semibold hover:bg-gray-800 transition-all cursor-pointer"
+              >
+                {isLogin ? "Login Now" : "Register Now"}
+              </button>
+            </form>
+
+            <p className="text-center text-sm mt-4 text-black font-semibold">
+              {isLogin ? (
+                <>
+                  Dont Have an account?{" "}
+                  <button
+                    type="button"
+                    className="font-bold Exo cursor-pointer hover:underline transition-all"
+                    onClick={() => setIsLogin(false)}
+                  >
+                    Register Here
+                  </button>
+                </>
+              ) : (
+                <>
+                  Already have an account?{" "}
+                  <button
+                    type="button"
+                    className="font-bold Exo cursor-pointer hover:underline transition-all"
+                    onClick={() => setIsLogin(true)}
+                  >
+                    Login Here
+                  </button>
+                </>
+              )}
+            </p>
+
+            <p className="text-center text-sm mt-4 pt-4 border-t border-white/10">
+              By signin in or signing up, you agree to <Link href="https://orvenaexample.com" className="Exo font-bold">Orvena</Link>,
+              you agree to our{" "}
+              <Link href="https://orvenaexample.com" className="Exo font-bold hover:underline">
+                Terms of Use
+              </Link>
+            </p>
+          </div>
+        </div>
+      )}
     </>
   )
 }
