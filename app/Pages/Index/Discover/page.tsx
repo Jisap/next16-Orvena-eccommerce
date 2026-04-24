@@ -21,11 +21,11 @@ const Discover = () => {
             </p>
 
             <div className="flex items-center gap-3">
-              <button className="def-btn font-semibold cursor-pointer py-2 border-s-2 border-r-2 border-transparent px-3 hover:border-black transition-all duration-300 rounded">
+              <button className="discover-btn font-semibold cursor-pointer py-2 px-3 rounded">
                 SHOP MEN
               </button>
 
-              <button className="def-btn font-semibold cursor-pointer py-2 border-s-2 border-r-2 border-transparent px-3 hover:border-black transition-all duration-300 rounded">
+              <button className="discover-btn font-semibold cursor-pointer py-2 px-3 rounded">
                 SHOP WOMEN
               </button>
             </div>

@@ -192,3 +192,95 @@ body {
     height: 70vh;
   }
 }
+
+.def-btn {
+  position: relative;
+}
+
+.def-btn::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--black);
+  transition: var(--transition-regular);
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.def-btn::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0%;
+  width: 100%;
+  height: 2px;
+  background-color: var(--black);
+  transition: var(--transition-regular);
+  transform: translateY(100%);
+  opacity: 0;
+  z-index: 1;
+}
+
+.def-btn:hover::after {
+  top: 0;
+  opacity: 1;
+}
+
+.def-btn:hover::before {
+  bottom: 0;
+  opacity: 1;
+}
+
+/* ─── Discover Buttons ─── */
+.discover-btn {
+  position: relative;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.discover-btn:hover {
+  border-left-color: var(--black);
+  border-right-color: var(--black);
+}
+
+/* Borde superior — invisible por defecto, baja al fondo en hover */
+.discover-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--black);
+  transition: top 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+/* Borde inferior — invisible por defecto, sube arriba en hover */
+.discover-btn::before {
+  content: "";
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--black);
+  transition: top 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.discover-btn:hover::after {
+  top: calc(100% - 2px);
+  /* baja al fondo */
+  opacity: 1;
+}
+
+.discover-btn:hover::before {
+  top: 0;
+  /* sube arriba */
+  opacity: 1;
+}
