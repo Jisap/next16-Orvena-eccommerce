@@ -35,15 +35,74 @@ const Sneakers = () => {
               </button>
             </div>
 
-            <button className="def-btn font-semibold cursor-pointer py-2 border-s-2 border-r-2 border-transparent px-3 hover:border-black transition-all duration-300 rounded">
+            {/* <button className="def-btn font-semibold cursor-pointer py-2 border-s-2 border-r-2 border-transparent px-3 hover:border-black transition-all duration-300 rounded">
+              SHOP MORE
+            </button> */}
+            <button className="discover-btn font-semibold cursor-pointer py-2 px-3 rounded">
               SHOP MORE
             </button>
           </h2>
-
-          <Swiper>
-
-          </Swiper>
         </div>
+
+        <Swiper
+          slidesPerView={6}
+          spaceBetween={20}
+          loop={true}
+          autoplay={{
+            delay: 2000
+          }}
+          navigation={{
+            nextEl: ".sneaker-next",
+            prevEl: ".sneaker-prev",
+          }}
+          modules={[Autoplay, Navigation]}
+          breakpoints={{
+            1200: { slidesPerView: 6 },
+            1000: { slidesPerView: 4 },
+            600: { slidesPerView: 2 },
+            0: { slidesPerView: 1 },
+          }}
+        >
+          {SneakerData.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div className="sneaker-card prodcut-card group">
+                <div className="sneaker-img overflow-hidden">
+                  <Link href={`/Pages/ShoesProduct/${item.id}`}>
+                    <Image
+                      src={item.image}
+                      width={500}
+                      height={500}
+                      alt={item.title}
+                      className="w-full h-full group-hover:scale-110 transition-all duration-300"
+                    />
+                  </Link>
+                </div>
+
+                <div className="py-3">
+                  <Link href={`/Pages/ShoesProduct/${item.id}`}>
+                    <span className="Exo text-gray-700">{item.brand}</span>
+                    <h2 className="Exo text-lg text-gray-800 font-medium my-3 hover:text-black cursor-pointer">
+                      {item.title}
+                    </h2>
+                  </Link>
+
+                  <div className="flex items-center relative gap-3 overflow-hidden">
+                    <h5 className="Exo font-semibold text-gray-700">{item.price}</h5>
+                    <div className="product-option flex items-center gap-2">
+                      <Link href={`/Pages/ShoesProduct/${item.id}`}>
+                        <Icon
+                          icon="lets-icons:view"
+                          width="24"
+                          height="24"
+                        />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </>
   )

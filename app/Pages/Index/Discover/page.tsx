@@ -11,7 +11,6 @@ const Discover = () => {
       <div className="flex flex-col lg:flex-row justify-between gap-8">
         <div className="w-full lg:w-2/3">
           <div>
-
             <h2 className="Exo text-4xl font-semibold text-gray-700">
               FOOTWEAR, FOR EXERCISE
             </h2>
