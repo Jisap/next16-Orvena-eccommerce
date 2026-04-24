@@ -8,13 +8,14 @@ import "swiper/css"
 import "swiper/css/navigation"
 import { Icon } from "@iconify/react"
 import Link from "next/link"
+import { useCart } from "../../Cart/CartContext"
 
 
 
 const Sneakers = () => {
 
-  // const { addToCart, cart } = useCart()
-  // const { toggleWishlist, wishlist } = useWishlist()
+  const { addToCart, cart } = useCart()
+  //const { toggleWishlist, wishlist } = useWishlist()
 
   return (
     <>
