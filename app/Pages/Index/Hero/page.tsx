@@ -20,8 +20,8 @@ const HERO_SLIDES = [
 ]
 
 const PROMO_MESSAGES = [
-  "Free and Easy Returns. Every Day.",
-  "Hassle-Free Returns. Anytime.",
+  "Free and Easy Returns. Every Day Every Time.",
+  "Hassle-Free Returns. Anytime Anywhere.",
   "Secure Checkout With Full Protection.",
   "Satisfaction Guaranteed On Every Purchase.",
   "Trusted Products. Reliable Service Always.",
@@ -127,7 +127,7 @@ const Hero = () => {
                   <button className="hero-prev z-10 absolute bottom-10 left-10 lg:left-14 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-400 hover:text-white">
                     <Icon icon="mdi:chevron-left" width="24" />
                   </button>
-                  <button className="hero-next z-10 absolute bottom-10 right-10 lg:right-24 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-400 hover:text-white">
+                  <button className="hero-next z-10 absolute bottom-10 right-10 lg:right-30 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-400 hover:text-white">
                     <Icon icon="mdi:chevron-right" width="24" />
                   </button>
                 </div>
