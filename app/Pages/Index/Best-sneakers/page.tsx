@@ -9,13 +9,14 @@ import "swiper/css/navigation"
 import { Icon } from "@iconify/react"
 import Link from "next/link"
 import { useCart } from "../../Cart/CartContext"
+import { useWishlist } from "../../Wishlist/WishlistContext"
 
 
 
 const Sneakers = () => {
 
   const { addToCart, cart } = useCart()
-  //const { toggleWishlist, wishlist } = useWishlist()
+  const { toggleWishlist, wishlist } = useWishlist()
 
   return (
     <>
@@ -66,7 +67,7 @@ const Sneakers = () => {
         >
           {SneakerData.map((item, index) => (
             <SwiperSlide key={index}>
-              <div className="sneaker-card prodcut-card group">
+              <div className="sneaker-card product-card group">
                 <div className="sneaker-img overflow-hidden">
                   <Link href={`/Pages/ShoesProduct/${item.id}`}>
                     <Image
@@ -89,14 +90,34 @@ const Sneakers = () => {
 
                   <div className="flex items-center relative gap-3 overflow-hidden">
                     <h5 className="Exo font-semibold text-gray-700">{item.price}</h5>
-                    <div className="product-option flex items-center gap-2">
+                    <div className="product-options flex items-center gap-2">
                       <Link href={`/Pages/ShoesProduct/${item.id}`}>
                         <Icon
                           icon="lets-icons:view"
                           width="24"
                           height="24"
+                          className="text-gray-700 product-option1 view-btn hover:text-black"
                         />
                       </Link>
+
+                      <Icon
+                        icon={wishlist.includes(item.id) ? "eva:heart-fill" : "eva:heart-outline"}
+                        onClick={() => toggleWishlist(item.id)}
+                        className={`
+                          cursor-pointer product-option2 wishlist-btn hover:text-black 
+                          ${wishlist.includes(item.id) ? "text-red-500" : "text-gray-700"}
+                        `}
+                        width="24"
+                        height="24"
+                      />
+
+                      <Icon
+                        onClick={() => addToCart(item.id)}
+                        icon="akar-icons:cart"
+                        className="text-gray-700 product-option3 cart-btn hover:text-black"
+                        width="24"
+                        height="24"
+                      />
                     </div>
                   </div>
                 </div>

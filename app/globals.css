@@ -367,5 +367,34 @@ body {
     align-items: center;
     text-align: center;
   }
+}
 
+.product-options .product-option1,
+.product-options .product-option2,
+.product-options .product-option3 {
+  position: absolute;
+  bottom: -100%;
+  transition: var(--transition-regular);
+  cursor: pointer;
+}
+
+/* Posicionamiento individual para evitar solapamiento */
+.product-options .product-option1 {
+  left: 35%;
+}
+
+.product-options .product-option2 {
+  left: 55%;
+  transition-delay: 0.1s; /* Efecto escalonado */
+}
+
+.product-options .product-option3 {
+  left: 75%;
+  transition-delay: 0.2s; /* Efecto escalonado */
+}
+
+.product-card:hover .product-options .product-option1,
+.product-card:hover .product-options .product-option2,
+.product-card:hover .product-options .product-option3 {
+  bottom: 0;
 }
