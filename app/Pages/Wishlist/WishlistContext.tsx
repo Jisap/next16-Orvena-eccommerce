@@ -43,6 +43,7 @@ export const WishlistProvider = ({ children }: { children: ReactNode }) => {
 
     setWishlist(updated);
     localStorage.setItem("wishlist", JSON.stringify(updated));
+
   }
 
   return (

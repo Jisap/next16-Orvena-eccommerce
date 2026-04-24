@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Exo, Geist, Geist_Mono, Luxurious_Roman } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar/Navbar";
+import { WishlistProvider } from "./Pages/Wishlist/WishlistContext";
+import { CartProvider } from "./Pages/Cart/CartContext";
+
 
 const exo = Exo({
   variable: "--font-exo",
@@ -40,8 +43,12 @@ export default function RootLayout({
       className={`${exo.variable} ${luxuriousRoman.variable} ${geistSans.variable} ${geistMono.variable} `}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
+        <CartProvider>
+          <WishlistProvider>
+            <Navbar />
+            {children}
+          </WishlistProvider>
+        </CartProvider>
       </body>
     </html>
   );

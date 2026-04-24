@@ -105,7 +105,7 @@ const Sneakers = () => {
                         onClick={() => toggleWishlist(item.id)}
                         className={`
                           cursor-pointer product-option2 wishlist-btn hover:text-black 
-                          ${wishlist.includes(item.id) ? "text-red-500" : "text-gray-700"}
+                          ${wishlist.includes(item.id) ? "text-red-500!" : "text-gray-700"}
                         `}
                         width="24"
                         height="24"
