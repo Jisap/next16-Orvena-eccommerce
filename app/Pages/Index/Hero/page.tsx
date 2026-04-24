@@ -123,16 +123,16 @@ const Hero = () => {
                   ))}
                 </Swiper>
 
-                <div className="flex">
-                  <button className="hero-prev z-10 absolute bottom-10 left-10 lg:left-14 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-400 hover:text-white">
-                    <Icon icon="mdi:chevron-left" width="24" />
-                  </button>
-                  <button className="hero-next z-10 absolute bottom-10 right-10 lg:right-30 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-400 hover:text-white">
-                    <Icon icon="mdi:chevron-right" width="24" />
-                  </button>
-                </div>
-              </div>
-            </div>
+              </div> {/* hero-slide-content */}
+
+              {/* Botones de navegación movidos fuera del 110% para posicionamiento preciso */}
+              <button className="hero-prev z-10 absolute bottom-10 left-10 lg:left-14 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-400 hover:text-white">
+                <Icon icon="mdi:chevron-left" width="24" />
+              </button>
+              <button className="hero-next z-10 absolute bottom-10 right-10 lg:right-14 cursor-pointer w-10 h-10 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center hover:bg-white/50 transition-all duration-300 shadow-sm text-gray-400 hover:text-white">
+                <Icon icon="mdi:chevron-right" width="24" />
+              </button>
+            </div> {/* hero-slide-wrapper */}
           </div>
         </div>
       </div>
