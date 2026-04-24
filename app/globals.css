@@ -93,7 +93,8 @@ body {
 /* Ventana con forma de trapecio */
 .hero-slide-wrapper {
   width: 100%;
-  height: 90vh; /* Forzamos la altura para que coincida con el hero */
+  height: 90vh;
+  /* Forzamos la altura para que coincida con el hero */
   transform: skew(-10deg) !important;
   border-left: 1px solid transparent;
   border-radius: 10px;
@@ -103,7 +104,8 @@ body {
 
 /* Enderezamos el contenido */
 .hero-slide-content {
-  transform: skew(10deg) scale(1.1); /* Añadimos un pequeño scale para asegurar cobertura */
+  transform: skew(10deg) scale(1.1);
+  /* Añadimos un pequeño scale para asegurar cobertura */
   /* Deshace el skew del contenedor para enderezar el contenido*/
   width: 110%;
   height: 100%;
@@ -205,6 +207,8 @@ body {
   }
 }
 
+/* Boton discover original */
+
 .def-btn {
   position: relative;
 }
@@ -246,7 +250,8 @@ body {
   opacity: 1;
 }
 
-/* ─── Discover Buttons ─── */
+/* Boton discover modificado */
+
 .discover-btn {
   position: relative;
   border-left: 2px solid transparent;
@@ -295,4 +300,30 @@ body {
   top: 0;
   /* sube arriba */
   opacity: 1;
+}
+
+/* Banner */
+
+.banner {
+  width: 100%;
+  height: 50vh;
+  background-image: url(../public//Images/Banner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+@media (max-width:600px) {
+  .banner-content {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .banner-btn {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
 }
