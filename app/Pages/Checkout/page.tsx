@@ -112,7 +112,54 @@ const CheckoutPage = () => {
 
 
   return (
-    <div>CheckoutPage</div>
+    <>
+      <div className="px-[5%] lg:px-[10%] py-20 mt-8">
+        <h2 className="text-5xl font-semibold mb-10">Checkout</h2>
+
+        <div className="flex flex-col lg:flex-row justify-between gap-5">
+          <div className="w-full lg:w-1/2 lg:sticky top-0 left-0 h-full">
+            <h3 className="text-2xl font-semibold mb-5">Billing Details</h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div>
+                <label className="Exo font-semibold">First Name</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  value={shippingInfo.firstName}
+                  onChange={handleInputChange}
+                  className="border border-gray-320 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                />
+              </div>
+
+              <div>
+                <label className="Exo font-semibold">Last Name</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  value={shippingInfo.lastName}
+                  onChange={handleInputChange}
+                  className="border border-gray-320 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="mt-3">
+              <div>
+                <label className="Exo font-semibold">Company Name (optional)</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={shippingInfo.company}
+                  onChange={handleInputChange}
+                  className="border border-gray-320 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 
