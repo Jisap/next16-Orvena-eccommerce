@@ -277,9 +277,15 @@ const CheckoutPage = () => {
             <div className="border-t border-gray-300 pt-4 flex justify-between mt-5 font-semibold text-lg">
               <span className="Exo text-xl">Total:</span>
               <span className="Exo text-xl">${subtotal.toFixed(2)}</span>
-
-
             </div>
+
+            <button
+              type="submit"
+              onClick={handlePlaceOrder}
+              className="w-full mt-5 cursor-pointer px-6 py-3 bg-black text-white font-semibold rounded hover:bg-gray-800 transition"
+            >
+              Place Order
+            </button>
           </div>
         </div>
       </div>
