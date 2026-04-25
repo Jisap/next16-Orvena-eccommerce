@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./Components/Navbar/Navbar";
 import { WishlistProvider } from "./Pages/Wishlist/WishlistContext";
 import { CartProvider } from "./Pages/Cart/CartContext";
+import { Toaster } from "react-hot-toast";
 
 
 const exo = Exo({
@@ -43,12 +44,13 @@ export default function RootLayout({
       className={`${exo.variable} ${luxuriousRoman.variable} ${geistSans.variable} ${geistMono.variable} `}
     >
       <body className="min-h-full flex flex-col">
-        <CartProvider>
-          <WishlistProvider>
+        <WishlistProvider>
+          <CartProvider>
             <Navbar />
             {children}
-          </WishlistProvider>
-        </CartProvider>
+            <Toaster position="top-right" />
+          </CartProvider>
+        </WishlistProvider>
       </body>
     </html>
   );

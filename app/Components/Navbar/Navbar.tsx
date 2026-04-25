@@ -1,5 +1,7 @@
 "use client"
 
+import { useCart } from "@/app/Pages/Cart/CartContext";
+import { useWishlist } from "@/app/Pages/Wishlist/WishlistContext";
 import { Icon } from "@iconify/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -38,6 +40,10 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const { wishlistCount } = useWishlist();
+  const { cartCount } = useCart();
+
 
 
   return (
@@ -103,6 +109,12 @@ const Navbar = () => {
                   height="35"
                   className="p-1.5 border border-gray-500 rounded-full hover:bg-white hover:border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer"
                 />
+
+                {wishlistCount > 0 && (
+                  <span className="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-semibold">
+                    {wishlistCount}
+                  </span>
+                )}
               </Link>
             </div>
 
@@ -115,6 +127,12 @@ const Navbar = () => {
                   className="p-1.5 border border-gray-500 rounded-full hover:bg-white hover:border-gray-200 hover:shadow-lg transition-all duration-200 cursor-pointer"
                 />
               </Link>
+
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-black text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-semibold">
+                  {cartCount}
+                </span>
+              )}
             </div>
 
             <button className="lg:hidden flex flex-col gap-[5px]" onClick={() => setOpen(!open)}>

@@ -30,7 +30,7 @@ const page = () => {
 
   useEffect(() => {
     const storedWishlist = localStorage.getItem("wishlist");
-    if (storedWishlist) return;
+    if (!storedWishlist) return;
 
     const ids: string[] = JSON.parse(storedWishlist || "[]");
     setWishlistIds(ids);
@@ -58,7 +58,7 @@ const page = () => {
     toast.success("Removed from Wishlist");
   };
 
-  const addToCart = useCart();
+  const { addToCart } = useCart();
 
 
   return (
@@ -86,8 +86,58 @@ const page = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {wishlistProducts.map((item) => (
-                <div key={item.id} className="">
+                <div key={item.id} className="group cursor-pointer">
+                  <div className="overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={500}
+                      height={500}
+                      className="w-full lg:w-[80%] object-cover h-full rounded group-hover:scale-105 transition duration-500 ease-in-out"
+                    />
+                  </div>
 
+                  <div className="py-3">
+                    <Link href={`/Pages/MensProducts/${item.id}`}>
+                      <span className="Exo text-gray-700">{item.brand}</span>
+
+                      <h2 className="Exo text-lg text-gray-800 font-medium my-3 hover:text-black cursor-pointer">
+                        {item.title}
+                      </h2>
+                    </Link>
+
+                    <div className="flex items-center gap-3 mb-2">
+                      <h5 className="Exo font-semibold text-gray-800">{item.lessPrice}</h5>
+
+                      <span className="bg-red-500 text-white px-3 rounded Exo font-semibold pt-0.5">
+                        {item.off}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-3 mt-3">
+                      <button
+                        onClick={() => removeFromWishlist(item.id)}
+                        className="p-2 rounded-full bg-red-500 cursor-pointer text-white hover:bg-red-600 transition"
+                      >
+                        <Icon
+                          icon="mdi:delete"
+                          width="20"
+                          height="20"
+                        />
+                      </button>
+
+                      <button
+                        onClick={() => addToCart(item.id)}
+                        className="p-2 rounded-full bg-black cursor-pointer text-white hover:bg-gray-800 transition"
+                      >
+                        <Icon
+                          icon="akar-icons:cart"
+                          width="20"
+                          height="20"
+                        />
+                      </button>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

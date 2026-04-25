@@ -21,29 +21,29 @@ const Sneakers = () => {
   return (
     <>
       <div className="px-[5%] lg:px-[10%] py-10 lg:py-20">
-        <div className="flex fill-white justify-between items-center gap-5">
+        <div className="flex flex-wrap justify-between items-center gap-5">
           <h2 className="Exo text-4xl uppercase font-semibold text-gray-800">
             Best Selling Seneakers
+          </h2>
 
-            <div className="flex items-center">
-              <button className="z-10 sneaker-prev cursor-pointer w-12 h-12 rounded flex items-center justify-center hover:-translate-x-2 transition-all duration-300">
-                <Icon icon="guidance:right-arrow" width="30" height="30" />
-              </button>
+          <div className="flex items-center">
+            <button className="z-10 sneaker-prev cursor-pointer w-12 h-12 rounded flex items-center justify-center hover:-translate-x-2 transition-all duration-300">
+              <Icon icon="guidance:right-arrow" width="30" height="30" />
+            </button>
 
-              <div className="w-30 h-0.5 bg-gray-600"></div>
+            <div className="w-30 h-0.5 bg-gray-600"></div>
 
-              <button className="z-10 sneaker-next cursor-pointer w-12 h-12 rounded flex items-center justify-center hover:translate-x-2 transition-all duration-300">
-                <Icon icon="guidance:left-arrow" width="30" height="30" />
-              </button>
-            </div>
+            <button className="z-10 sneaker-next cursor-pointer w-12 h-12 rounded flex items-center justify-center hover:translate-x-2 transition-all duration-300">
+              <Icon icon="guidance:left-arrow" width="30" height="30" />
+            </button>
+          </div>
 
-            {/* <button className="def-btn font-semibold cursor-pointer py-2 border-s-2 border-r-2 border-transparent px-3 hover:border-black transition-all duration-300 rounded">
+          {/* <button className="def-btn font-semibold cursor-pointer py-2 border-s-2 border-r-2 border-transparent px-3 hover:border-black transition-all duration-300 rounded">
               SHOP MORE
             </button> */}
-            <button className="discover-btn font-semibold cursor-pointer py-2 px-3 rounded">
-              SHOP MORE
-            </button>
-          </h2>
+          <button className="discover-btn font-semibold cursor-pointer py-2 px-3 rounded">
+            SHOP MORE
+          </button>
         </div>
 
         <Swiper
