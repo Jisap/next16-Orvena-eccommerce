@@ -117,7 +117,7 @@ const CheckoutPage = () => {
         <h2 className="text-5xl font-semibold mb-10">Checkout</h2>
 
         <div className="flex flex-col lg:flex-row justify-between gap-5">
-          <div className="w-full lg:w-1/2 lg:sticky top-0 left-0 h-full">
+          <div className="w-full lg:w-1/2 h-full">
             <h3 className="text-2xl font-semibold mb-5">Billing Details</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -245,7 +245,7 @@ const CheckoutPage = () => {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 border border-gray-200 rounded-lg p-6 shadow-sm">
+          <div className="w-full lg:w-1/2 border border-gray-200 rounded-lg p-6 shadow-sm lg:sticky top-0 left-0 h-full">
             <h3 className="text-2xl font-semibold mb-5">Order Summary</h3>
 
             <div className="flex flex-col gap-4">
