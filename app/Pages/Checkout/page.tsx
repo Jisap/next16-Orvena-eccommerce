@@ -64,8 +64,8 @@ const CheckoutPage = () => {
     };
   }).filter(Boolean) as ProductWithQty[];                    // Filtra los productos que no existen
 
-  const total = cartItems.reduce(
-    (acc, item) => acc + Number(item?.price.replace("$", "") || "0") * (item?.quantity || 1), 0
+  const subtotal = cartItems.reduce(
+    (acc, item) => acc + Number(item?.price.replace("$", "")) * item?.quantity, 0
   );
 
   const [shippingInfo, setShippingInfo] = useState({
@@ -122,24 +122,24 @@ const CheckoutPage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div>
-                <label className="Exo font-semibold">First Name</label>
+                <label className="Exo font-semibold">First Name<span className="text-red-500">*</span></label>
                 <input
                   type="text"
                   name="firstName"
                   value={shippingInfo.firstName}
                   onChange={handleInputChange}
-                  className="border border-gray-320 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                  className="border border-gray-400 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
                 />
               </div>
 
               <div>
-                <label className="Exo font-semibold">Last Name</label>
+                <label className="Exo font-semibold">Last Name<span className="text-red-500">*</span></label>
                 <input
                   type="text"
                   name="lastName"
                   value={shippingInfo.lastName}
                   onChange={handleInputChange}
-                  className="border border-gray-320 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                  className="border border-gray-400 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
                 />
               </div>
             </div>
@@ -152,9 +152,133 @@ const CheckoutPage = () => {
                   name="company"
                   value={shippingInfo.company}
                   onChange={handleInputChange}
-                  className="border border-gray-320 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                  className="border border-gray-400 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
                 />
               </div>
+            </div>
+
+            <div className="mt-3">
+              <div>
+                <label className="Exo font-semibold">Street Address<span className="text-red-500">*</span></label>
+                <input
+                  type="text"
+                  name="address"
+                  value={shippingInfo.address}
+                  onChange={handleInputChange}
+                  className="border border-gray-400 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="mt-3">
+              <div>
+                <label className="Exo font-semibold">Apartment (optional)</label>
+                <input
+                  type="text"
+                  name="apartment"
+                  value={shippingInfo.apartment}
+                  onChange={handleInputChange}
+                  className="border border-gray-400 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="mt-3">
+              <div>
+                <label className="Exo font-semibold">Town / City<span className="text-red-500">*</span></label>
+                <input
+                  type="text"
+                  name="city"
+                  value={shippingInfo.city}
+                  onChange={handleInputChange}
+                  className="border border-gray-400 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="mt-3">
+              <div>
+                <label className="Exo font-semibold">postCode<span className="text-red-500">*</span></label>
+                <input
+                  type="text"
+                  onChange={handleInputChange}
+                  className="border border-gray-400 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="mt-3">
+              <div>
+                <label className="Exo font-semibold">Phone<span className="text-red-500">*</span></label>
+                <input
+                  type="text"
+                  name="phone"
+                  value={shippingInfo.phone}
+                  onChange={handleInputChange}
+                  className="border border-gray-400 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="mt-3">
+              <div>
+                <label className="Exo font-semibold">Email Address<span className="text-red-500">*</span></label>
+                <input
+                  type="email"
+                  name="email"
+                  value={shippingInfo.email}
+                  onChange={handleInputChange}
+                  className="border border-gray-400 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <div className="mt-3">
+              <div>
+                <label className="Exo font-semibold">Additional Information (optional)<span className="text-red-500">*</span></label>
+                <textarea
+                  rows={5}
+                  placeholder="Notes about order."
+                  className="border border-gray-400 p-3 rounded px-3 py-2 mt-1 w-full focus:border-gray-400 transition-all duration-300"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="w-full lg:w-1/2 border border-gray-200 rounded-lg p-6 shadow-sm">
+            <h3 className="text-2xl font-semibold mb-5">Order Summary</h3>
+
+            <div className="flex flex-col gap-4">
+              {cartItems.map((item) => (
+                <div key={item.id} className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-3">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={60}
+                      height={60}
+                      className="rounded"
+                    />
+
+                    <div className="flex flex-col">
+                      <span className="text-gray-800 font-medium">{item.title}</span>
+                      <span className="text-gray-800 font-medium">{item.brand}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <span className="Exo line-through text-red-300">{item.lessPrice}</span>
+                    <span className="Exo font-semibold">${(Number(item.price.replace("$", "")) * item.quantity).toFixed(2)}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="border-t border-gray-300 pt-4 flex justify-between mt-5 font-semibold text-lg">
+              <span className="Exo text-xl">Total:</span>
+              <span className="Exo text-xl">${subtotal.toFixed(2)}</span>
+
+
             </div>
           </div>
         </div>
