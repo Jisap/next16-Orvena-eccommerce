@@ -385,16 +385,23 @@ body {
 
 .product-options .product-option2 {
   left: 55%;
-  transition-delay: 0.1s; /* Efecto escalonado */
+  transition-delay: 0.1s;
+  /* Efecto escalonado */
 }
 
 .product-options .product-option3 {
   left: 75%;
-  transition-delay: 0.2s; /* Efecto escalonado */
+  transition-delay: 0.2s;
+  /* Efecto escalonado */
 }
 
 .product-card:hover .product-options .product-option1,
 .product-card:hover .product-options .product-option2,
 .product-card:hover .product-options .product-option3 {
   bottom: 0;
+}
+
+.Shop-cate-banner {
+  background-color: transparent;
+  background-image: linear-gradient(110deg, #ebebeb 57%, #f4f4f4 57%);
 }
