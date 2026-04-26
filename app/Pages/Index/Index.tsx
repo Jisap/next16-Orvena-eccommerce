@@ -5,6 +5,7 @@ import Banner from './Banner.tsx/page'
 import Sneakers from './Best-sneakers/page'
 import ShopBannerCategory from './ShopBannerCategory/page'
 import HotDealsBanner from './HotDealsBanner/page'
+import NewArrivals from './NewArrivals/page'
 
 
 
@@ -17,6 +18,7 @@ const Index = () => {
       <Sneakers />
       <ShopBannerCategory />
       <HotDealsBanner />
+      <NewArrivals />
     </>
   )
 }
