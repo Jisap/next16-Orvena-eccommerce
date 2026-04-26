@@ -4,11 +4,17 @@ import DiscoverButton from '@/app/Components/Button'
 import Image from 'next/image'
 import NewArrivalsData from "@/app/JsonData/NewArrivals.json"
 import { Icon } from '@iconify/react'
+import { useCart } from "../../Cart/CartContext"
+import { useWishlist } from "../../Wishlist/WishlistContext"
 
 
 
 
 const NewArrivals = () => {
+
+  const { addToCart } = useCart()
+  const { toggleWishlist, wishlist } = useWishlist()
+
   return (
     <>
       <div className='px-[5%] lg:px-[10%] py-10 lg:py-20'>
@@ -22,7 +28,7 @@ const NewArrivals = () => {
           </DiscoverButton>
         </div>
 
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-5 gap-y-10'>
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 gap-x-5 gap-y-10'>
           {NewArrivalsData.map((item, index) => (
             <div key={index} className='sneaker-card product-card group flex flex-col'>
               <div className='overflow-hidden relative aspect-square group bg-gray-100 rounded-lg'>
@@ -45,7 +51,7 @@ const NewArrivals = () => {
                 )}
               </div>
 
-              <div className='py-4 flex flex-col flex-grow'>
+              <div className='py-4 flex flex-col grow'>
                 <span className='Exo text-xs font-semibold text-gray-400 uppercase tracking-wider'>{item.brand}</span>
 
                 <h2 className='Exo text-base text-gray-800 font-medium mt-2 mb-3 hover:text-black cursor-pointer line-clamp-2 min-h-[3rem]'>
@@ -72,18 +78,19 @@ const NewArrivals = () => {
                         height="20"
                       />
                       <Icon
-                        icon="eva:heart-outline"
-                        className='text-black hover:opacity-60 cursor-pointer transition-all duration-300 delay-75'
+                        icon={wishlist.includes(item.id) ? "eva:heart-fill" : "eva:heart-outline"}
+                        onClick={() => toggleWishlist(item.id)}
+                        className={`cursor-pointer transition-all duration-300 delay-75 ${wishlist.includes(item.id) ? "text-red-500" : "text-black hover:opacity-60"}`}
                         width="20"
                         height="20"
                       />
                       <Icon
+                        onClick={() => addToCart(item.id)}
                         icon="akar-icons:cart"
                         className='text-black hover:opacity-60 cursor-pointer transition-all duration-300 delay-150'
                         width="20"
                         height="20"
                       />
-
                     </div>
                   </div>
                 </div>
@@ -91,10 +98,10 @@ const NewArrivals = () => {
             </div>
           ))}
         </div>
-
       </div>
     </>
   )
 }
+
 
 export default NewArrivals
