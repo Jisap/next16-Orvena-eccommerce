@@ -22,16 +22,16 @@ const NewArrivals = () => {
           </DiscoverButton>
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5'>
+        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-x-5 gap-y-10'>
           {NewArrivalsData.map((item, index) => (
-            <div key={index} className='sneaker-card product-card group'>
-              <div className='overflow-hidden relative group'>
+            <div key={index} className='sneaker-card product-card group flex flex-col'>
+              <div className='overflow-hidden relative aspect-square group bg-gray-100 rounded-lg'>
                 <Image
                   src={item.image}
                   alt={item.title}
                   width={500}
                   height={500}
-                  className={`w-full h-full transition-all duration-300 ${item.secondImage ? "group-hover:opacity-0" : ""}`}
+                  className={`w-full h-full object-cover transition-all duration-500 ${item.secondImage ? "group-hover:scale-110 group-hover:opacity-0" : "group-hover:scale-110"}`}
                 />
 
                 {item.secondImage && (
@@ -40,52 +40,58 @@ const NewArrivals = () => {
                     alt={item.title}
                     width={500}
                     height={500}
-                    className='w-full h-full absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all duration-300'
+                    className='w-full h-full object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500'
                   />
                 )}
               </div>
 
-              <div className='py-3'>
-                <span className='Exo text-gray-700'>{item.brand}</span>
+              <div className='py-4 flex flex-col flex-grow'>
+                <span className='Exo text-xs font-semibold text-gray-400 uppercase tracking-wider'>{item.brand}</span>
 
-                <h2 className='Exo text-lg text-gray-800 font-medium my-3 hover:text-black cursor-pointer'>
+                <h2 className='Exo text-base text-gray-800 font-medium mt-2 mb-3 hover:text-black cursor-pointer line-clamp-2 min-h-[3rem]'>
                   {item.title}
                 </h2>
 
-                <div className='flex items-center gap-3 mb-2'>
-                  <h5 className='Exo font-medium line-through text-gray-500'>{item.lessPrice}</h5>
+                <div className='mt-auto'>
+                  <div className='flex items-center gap-3 mb-2'>
+                    <h5 className='Exo text-sm font-medium line-through text-gray-400'>{item.lessPrice}</h5>
 
-                  <span className='bg-red-500 text-white px-3 rounded Exo font-medium pt-0.5'>{item.off}</span>
-                </div>
+                    <span className='bg-red-500 text-white px-2 py-0.5 rounded text-[10px] Exo font-bold uppercase'>
+                      {item.off}
+                    </span>
+                  </div>
 
-                <div className='flex items-center relative gap-3 overflow-hidden'>
-                  <h5 className='Exo font-semibold text-gray-700'>{item.price}</h5>
+                  <div className='flex items-center gap-4 relative overflow-hidden'>
+                    <h5 className='Exo font-bold text-lg text-gray-900'>{item.price}</h5>
 
-                  <div className='product-options flex items-center gap-2'>
-                    <Icon
-                      icon="lets-icons:view"
-                      className='text-gray-700 product-option1 view-btn hover:text-black'
-                      width="24"
-                      height="24"
-                    />
-                    <Icon
-                      icon="eva:heart-outline"
-                      className='text-gray-700 product-option2 view-btn hover:text-black'
-                      width="24"
-                      height="24"
-                    />
-                    <Icon
-                      icon="akar-icons:cart"
-                      className='text-gray-700 product-option3 view-btn hover:text-black cart-btn'
-                      width="24"
-                      height="24"
-                    />
+                    <div className='flex items-center gap-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-500'>
+                      <Icon
+                        icon="lets-icons:view"
+                        className='text-black hover:opacity-60 cursor-pointer transition-all duration-300'
+                        width="20"
+                        height="20"
+                      />
+                      <Icon
+                        icon="eva:heart-outline"
+                        className='text-black hover:opacity-60 cursor-pointer transition-all duration-300 delay-75'
+                        width="20"
+                        height="20"
+                      />
+                      <Icon
+                        icon="akar-icons:cart"
+                        className='text-black hover:opacity-60 cursor-pointer transition-all duration-300 delay-150'
+                        width="20"
+                        height="20"
+                      />
+
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </>
   )
