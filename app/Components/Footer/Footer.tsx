@@ -1,6 +1,15 @@
 import { Icon } from '@iconify/react'
 import Link from 'next/link'
-import React from 'react'
+import payment1 from '@/public/Images/payments1.svg'
+import payment2 from '@/public/Images/payments2.svg'
+import payment3 from '@/public/Images/payments3.svg'
+import payment4 from '@/public/Images/payments4.svg'
+import payment5 from '@/public/Images/payments5.svg'
+import payment6 from '@/public/Images/payments6.svg'
+import Image from 'next/image'
+
+
+const paymentsData = [payment1, payment2, payment3, payment4, payment5, payment6];
 
 const Footer = () => {
   return (
@@ -140,12 +149,56 @@ const Footer = () => {
                       <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
                         Terms & Conditions
                       </Link>
+                    </div>
+                  </div>
+
+                  <div className='footer-col'>
+                    <h2 className='text-3xl Exo font-semibold tracking-wide mb-5'>
+                      FOLLOW US
+                    </h2>
+
+                    <div className='flex flex-col'>
                       <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
-                        Fitness & Yoga
+                        Facebook
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Instagram
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Youtube
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        X/Twitter
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Dribble
                       </Link>
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div className='footer-bottom pt-10'>
+            <div className='flex flex-wrap justify-center lg:justify-between items-center text-center gap-3 border-t border-gray-300 pt-10'>
+              <p className='text-xl text-gray-600'>
+                Copyright © 2026 Orvena | All Rights Reserved
+              </p>
+
+              <div className='flex flex-col md:flex-row items-center gap-5'>
+                <h2 className='text-xl Exo text-gray-600'>Secure payment :</h2>
+
+                {paymentsData.map((payment, index) => (
+                  <Image
+                    key={index}
+                    src={payment}
+                    alt={`payment-${index + 1}`}
+                    width={60}
+                    height={60}
+                    className="opacity-50 hover:opacity-80 cursor-pointer transition-all duration-300"
+                  />
+                ))}
               </div>
             </div>
           </div>
