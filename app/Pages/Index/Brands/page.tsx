@@ -26,6 +26,10 @@ const Brands = () => {
           slidesPerView={8}
           spaceBetween={20}
           loop={true}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+          }}
           modules={[Autoplay]}
           breakpoints={{
             1200: { slidesPerView: 8 },
@@ -46,6 +50,13 @@ const Brands = () => {
                   className="w-full h-full" />
               </div>
 
+              <Image
+                src={brand}
+                alt={`brand-${index + 1}`}
+                width={500}
+                height={500}
+                className="w-full h-full absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all duration-300 cursor-pointer hover:scale-105"
+              />
             </SwiperSlide>
           ))}
         </Swiper>
