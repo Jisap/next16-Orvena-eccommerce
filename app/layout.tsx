@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import { WishlistProvider } from "./Pages/Wishlist/WishlistContext";
 import { CartProvider } from "./Pages/Cart/CartContext";
 import { Toaster } from "react-hot-toast";
+import Footer from "./Components/Footer/Footer";
 
 
 const exo = Exo({
@@ -48,6 +49,7 @@ export default function RootLayout({
           <CartProvider>
             <Navbar />
             {children}
+            <Footer />
             <Toaster position="top-right" />
           </CartProvider>
         </WishlistProvider>
