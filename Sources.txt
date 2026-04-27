@@ -1098,3 +1098,11 @@ Blog Details
 
 Save my name, email, and website in this browser for the next time I comment.
 Post Comments
+
+const sortOptions = [
+  {key: "default", label: "Default"},
+  {key: "latest", label: "Latest"},
+  {key: "oldest", label: "Oldest"},
+  {key: "low", label: "Price: Low to High"},
+  {key: "high", label: "Price: High to Low"},
+]
