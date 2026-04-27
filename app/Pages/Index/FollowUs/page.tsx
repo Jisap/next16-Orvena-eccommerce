@@ -1,6 +1,45 @@
 "use client"
 
 import { Icon } from "@iconify/react"
+import Image from "next/image"
+import instaImg1 from "@/public/Images/Instagram-1.jpg"
+import instaImg2 from "@/public/Images/Instagram-2.jpg"
+import instaImg3 from "@/public/Images/Instagram-3.jpg"
+import instaImg4 from "@/public/Images/Instagram-4.jpg"
+import instaImg5 from "@/public/Images/Instagram-5.jpg"
+import instaImg6 from "@/public/Images/Instagram-6.jpg"
+import instaImg7 from "@/public/Images/Instagram-7.jpg"
+
+const InstagramImages = [
+  {
+    id: 1,
+    img: instaImg1
+  },
+  {
+    id: 2,
+    img: instaImg2
+  },
+  {
+    id: 3,
+    img: instaImg3
+  },
+  {
+    id: 4,
+    img: instaImg4
+  },
+  {
+    id: 5,
+    img: instaImg5
+  },
+  {
+    id: 6,
+    img: instaImg6
+  },
+  {
+    id: 7,
+    img: instaImg7
+  },
+];
 
 
 const FollowUs = () => {
@@ -29,7 +68,26 @@ const FollowUs = () => {
           </h2>
         </div>
 
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3 mt-10">
+          {InstagramImages.map((img) => (
+            <div key={img.id} className={`relative group overflow-hidden rounded ${img.id === 6 ? "hidden lg:block" : ""}`}>
+              <Image
+                src={img.img}
+                alt="instagramImg"
+                width={400}
+                height={400}
+                className="w-full h-full object-cover cursor-pointer"
+              />
 
+              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 cursor-pointer transition-all duration-300 flex items-center justify-center">
+                <Icon
+                  icon="akar-icons:instagram-fill"
+                  className="text-white text-4xl scale-75 group-hover:scale-100 transition-all duration-300"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   )
