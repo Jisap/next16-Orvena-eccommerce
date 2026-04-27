@@ -61,6 +61,93 @@ const Footer = () => {
                 Orvena is the best fashion e-commerce platform for buying the latest trends in clothing and accessories. Shop now and discover the best deals on your favorite brands.
               </p>
             </div>
+
+            <div className='w-full lg:w-1/1'>
+              <div className='footer-grid'>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-5'>
+                  <div className='footer-col'>
+                    <h2 className='text-3xl Exo font-semibold tracking-wide mb-5'>
+                      SHOP
+                    </h2>
+
+                    <div className='flex flex-col'>
+                      <Link href="#about" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Men Clothing
+                      </Link>
+                      <Link href="#service" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Women Clothing
+                      </Link>
+                      <Link href="#pricing" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Shoes
+                      </Link>
+                      <Link href="#blog" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Outlet
+                      </Link>
+                      <Link href="#faqs" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Collections
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className='footer-col'>
+                    <h2 className='text-3xl Exo font-semibold tracking-wide mb-5'>
+                      SPORTS
+                    </h2>
+
+                    <div className='flex flex-col'>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Athletics
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Basketball
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Dancewear
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Boxing
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Fitness & Yoga
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Football
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Tennis
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Swimwear
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className='footer-col'>
+                    <h2 className='text-3xl Exo font-semibold tracking-wide mb-5'>
+                      HELP
+                    </h2>
+
+                    <div className='flex flex-col'>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Asked Questions
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Privacy Policy
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Return & Exchange
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Terms & Conditions
+                      </Link>
+                      <Link href="/" className='text-lg Exo text-gray-800 hover:text-black hover:ps-1 transition-all duration-200'>
+                        Fitness & Yoga
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </footer>
       </div>
