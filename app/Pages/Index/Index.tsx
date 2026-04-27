@@ -7,6 +7,7 @@ import ShopBannerCategory from './ShopBannerCategory/page'
 import HotDealsBanner from './HotDealsBanner/page'
 import NewArrivals from './NewArrivals/page'
 import Blogs from './Blogs/page'
+import FollowUs from './FollowUs/page'
 
 
 
@@ -21,6 +22,7 @@ const Index = () => {
       <HotDealsBanner />
       <NewArrivals />
       <Blogs />
+      <FollowUs />
     </>
   )
 }
