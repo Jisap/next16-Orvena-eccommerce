@@ -46,6 +46,9 @@ const MensProducts = () => {
     }
   });
 
+  const { addToCart, cart } = useCart();
+  const { wishlist, toggleWishlist } = useWishlist();
+
 
   return (
     <>
@@ -56,8 +59,18 @@ const MensProducts = () => {
           </h2>
 
           <div className='absolute top-1/2 right-0 translate-y-4/2 md:translate-y-1/2 w-[60%] md:w-[40%] bg-gray-100 h-10'></div>
-
           <div className='absolute top-1/2 left-0 -translate-y-1/2 md:-translate-y-1/2 w-[40%] md:w-[5%] lg:w-[8%] bg-gray-100 h-10'></div>
+        </div>
+      </div>
+
+      <div className="px-[5%] lg:px-[10%] py-20">
+        <div className="py-5 mb-10 flex justify-between items-center">
+          <div className="Exo text-2xl font-semibold text-gray-700">Showing</div>
+          ({MensProductData.length}) products
+        </div>
+
+        <div className="relative cursor-pointer">
+
         </div>
       </div>
     </>
