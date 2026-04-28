@@ -207,8 +207,58 @@ const ProductDetails = () => {
         </div>
       </div>
 
-      <div>
+      <div className='px-[5%] lg:px-[10%] py-20'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+          <div>
+            <h2 className='Exo font-semibold text-5xl mb-5'>
+              Description
+            </h2>
 
+            <p className='text-gray-600 tracking-wide'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Perferendis sit amet consectetur adipisicing elit. Quisquam, quod. Voluptatum, rerum voluptatem voluptatum rerum voluptatem voluptatum rerum voluptatem voluptatum rerum voluptatem voluptatum rerum voluptatem voluptatum rerum voluptatem.
+            </p>
+
+            <p className='text-gray-600 tracking-wide mt-4'>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Perferendis sit amet consectetur adipisicing elit. Quisquam, quod. Voluptatum, rerum voluptatem voluptatum rerum voluptatem voluptatum rerum voluptatem voluptatum rerum voluptatem voluptatum rerum voluptatem voluptatum rerum voluptatem.
+            </p>
+          </div>
+
+          <div className='mt-5 lg:mt-0'>
+            <h2 className='Exo font-semibold text-5xl mb-5'>Information</h2>
+
+            <div className='mb-4'>
+              <h3 className='Exo font-semibold'>Shipping</h3>
+
+              <p className='text-gray-600 tracking-wide'>
+                We currently offer free shipping worldwide on all orders over $100.
+              </p>
+            </div>
+
+            <div className='mb-4'>
+              <h3 className='Exo font-semibold'>Sizing</h3>
+
+              <p className='text-gray-600 tracking-wide'>
+                Fits true to size. Do you need size advice?.
+              </p>
+            </div>
+
+            <div className='mb-4'>
+              <h3 className='Exo font-semibold'>Return & Exchange</h3>
+
+              <p className='text-gray-600 tracking-wide'>
+                If your are not satisfied with your purchase you can return it to us within 14 days for an exchange or refund. More Info.
+              </p>
+            </div>
+
+            <div className='mb-4'>
+              <h3 className='Exo font-semibold'>Assistance</h3>
+
+              <p className='text-gray-600 tracking-wide'>
+                Call us at 1-800-555-0199 or email us at support-orvena@email.com
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )
