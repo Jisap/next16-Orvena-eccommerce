@@ -7,6 +7,7 @@ import Link from "next/link"
 import { useCart } from "../Cart/CartContext"
 import { useWishlist } from "../Wishlist/WishlistContext"
 import { useState } from "react"
+import DecoratedTitle from "@/app/Components/DecoratedTitle"
 
 
 type product = typeof MensProductData[0];
@@ -52,14 +53,12 @@ const MensProducts = () => {
 
   return (
     <>
-      <div className='Page-section relative'>
-        <div className='px-[5%] lg:px-[10%] py-40 pb-10'>
-          <h2 className='text-5xl md:text-7xl lg:text-9xl text-gray-300 font-bold Exo uppercase'>
-            Men Clothing
-          </h2>
+      <div className='Page-section relative overflow-hidden'>
+        <div className='px-[5%] lg:px-[10%] py-40 pb-10 relative z-10'>
+          <DecoratedTitle>
+            Mens <br /> Products
+          </DecoratedTitle>
 
-          <div className='absolute top-1/2 right-0 translate-y-4/2 md:translate-y-1/2 w-[60%] md:w-[40%] bg-gray-100 h-10'></div>
-          <div className='absolute top-1/2 left-0 -translate-y-1/2 md:-translate-y-1/2 w-[40%] md:w-[5%] lg:w-[8%] bg-gray-100 h-10'></div>
         </div>
       </div>
 
