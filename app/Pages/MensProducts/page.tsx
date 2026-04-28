@@ -97,7 +97,7 @@ const MensProducts = () => {
         </div>
       </div>
 
-      <div className="px-[5%] lg:px-[10%] pb-32">
+      <div className="px-[5%] lg:px-[10%] pb-15">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
           {sortedProducts.slice(0, visibleCount).map((product: product, index: number) => {
             const isWishlisted = wishlist.includes(product.id);
@@ -189,8 +189,20 @@ const MensProducts = () => {
         </div>
       </div>
 
-      <div>
-        <button></button>
+      <div className="flex justify-center mt-2">
+        <button
+          className='px-8 py-3 cursor-pointer border border-gray-200 rounded hover:bg-gray-100 Exo font-medium'
+          onClick={() => {
+            if (visibleCount < sortedProducts.length) {
+              setVisibleCount((prev) => prev + 16);
+            } else {
+              setVisibleCount(16);
+            }
+          }
+          }
+        >
+          {visibleCount < sortedProducts.length ? "Show More" : "Show Less"}
+        </button>
       </div>
     </>
   )
