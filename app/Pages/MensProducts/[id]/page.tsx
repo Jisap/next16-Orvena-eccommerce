@@ -163,6 +163,25 @@ const ProductDetails = () => {
                   className='px-3 py-1 text-2xl font-semibold cursor-pointer'
                 > + </span>
               </div>
+
+              <button
+                onClick={handleAddToCart}
+                disabled={!selectedSize || isInCart}
+                className={`
+                  px-6 py-3 rounded font-medium flex items-center gap-2 transition 
+                  ${selectedSize
+                    ? "text-white cursor-pointer"
+                    : "text-gray-400 cursor-not-allowed"
+                  }  
+                `}
+              >
+                <Icon
+                  icon="akar-icons:cart"
+                  width={24}
+                  height={24}
+                />
+                {isInCart ? "In Cart" : "Add to Cart"}
+              </button>
             </div>
           </div>
         </div>
