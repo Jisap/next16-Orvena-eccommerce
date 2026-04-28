@@ -122,64 +122,75 @@ const MensProducts = () => {
                       />
                     )}
                   </Link>
-
-                  {/* Badges */}
-                  {product.off && (
-                    <div className="absolute top-4 left-4 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full z-10">
-                      {product.off}
-                    </div>
-                  )}
-
-                  {/* Action Buttons */}
-                  <div className="absolute top-4 right-4 flex flex-col gap-2 translate-x-12 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 z-10">
-                    <button
-                      onClick={(e) => { e.preventDefault(); toggleWishlist(product.id); }}
-                      className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-sm ${isWishlisted ? 'bg-red-500 text-white' : 'bg-white text-gray-900 hover:bg-black hover:text-white'}`}
-                    >
-                      <Icon icon={isWishlisted ? "solar:heart-bold" : "solar:heart-linear"} className="text-xl" />
-                    </button>
-
-                    <button
-                      onClick={(e) => { e.preventDefault(); addToCart(product.id); }}
-                      className="w-10 h-10 bg-white text-gray-900 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors shadow-sm"
-                    >
-                      <Icon icon="solar:cart-large-minimalistic-linear" className="text-xl" />
-                    </button>
-                  </div>
-
-                  {/* Quick View Button */}
-                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-10">
-                    <Link
-                      href={`/Pages/MensProducts/${product.id}`}
-                      className="bg-white text-black text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:bg-black hover:text-white transition-all whitespace-nowrap shadow-lg"
-                    >
-                      Quick View
-                    </Link>
-                  </div>
                 </div>
 
-                <div className="flex flex-col flex-grow px-2">
+                <div className="flex flex-col grow px-2">
                   <div className="flex justify-between items-start mb-2">
                     <span className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">{product.brand}</span>
                   </div>
 
                   <Link href={`/Pages/MensProducts/${product.id}`} className="group-hover:text-gray-600 transition-colors">
-                    <h2 className="Exo text-[15px] text-gray-900 font-semibold leading-tight mb-3 line-clamp-2 min-h-[40px]">
+                    <h2 className="Exo text-[15px] text-gray-900 font-semibold leading-tight mb-3 line-clamp-2 min-h-[20px]">
                       {product.title}
                     </h2>
                   </Link>
 
-                  <div className="mt-auto flex items-center gap-3">
-                    <span className="text-lg font-bold text-black">{product.price}</span>
-                    {product.lessPrice && (
-                      <span className="text-sm text-gray-400 line-through">{product.lessPrice}</span>
+                  <div className='mt-auto'>
+                    {(product.lessPrice || product.off) ? (
+                      <div className='flex items-center gap-3 mb-2'>
+                        {product.lessPrice && (
+                          <h5 className='Exo text-sm font-medium line-through text-gray-400'>{product.lessPrice}</h5>
+                        )}
+                        {product.off && (
+                          <span className='bg-red-500 text-white px-2 py-0.5 rounded text-[10px] Exo font-bold uppercase'>
+                            {product.off}
+                          </span>
+                        )}
+                      </div>
+                    ) : (
+                      <div className='flex items-center mb-5'>
+                        <div className='w-6 h-[2px] bg-red-500 rounded-full'></div>
+                      </div>
                     )}
+
+                    <div className='flex items-center gap-4 relative overflow-hidden'>
+                      <h5 className='Exo font-bold text-lg text-gray-900'>{product.price}</h5>
+
+                      <div className='flex items-center gap-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-500'>
+                        <Link href={`/Pages/MensProducts/${product.id}`}>
+                          <Icon
+                            icon="lets-icons:view"
+                            className='text-black hover:opacity-60 cursor-pointer transition-all duration-300'
+                            width="20"
+                            height="20"
+                          />
+                        </Link>
+                        <Icon
+                          icon={isWishlisted ? "eva:heart-fill" : "eva:heart-outline"}
+                          onClick={() => toggleWishlist(product.id)}
+                          className={`cursor-pointer transition-all duration-300 delay-75 ${isWishlisted ? "text-red-500" : "text-black hover:opacity-60"}`}
+                          width="20"
+                          height="20"
+                        />
+                        <Icon
+                          onClick={() => addToCart(product.id)}
+                          icon="akar-icons:cart"
+                          className='text-black hover:opacity-60 cursor-pointer transition-all duration-300 delay-150'
+                          width="20"
+                          height="20"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             );
           })}
         </div>
+      </div>
+
+      <div>
+        <button></button>
       </div>
     </>
   )
