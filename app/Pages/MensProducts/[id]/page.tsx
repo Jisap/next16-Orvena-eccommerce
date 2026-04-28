@@ -259,7 +259,116 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
+
+        <h2 className='Exo font-semibold text-5xl my-10 mb-5'>
+          Related Products
+        </h2>
+
+        <Swiper
+          slidesPerView={4}
+          spaceBetween={20}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay]}
+          breakpoints={{
+            1200: { slidesPerView: 4 },
+            1000: { slidesPerView: 3 },
+            600: { slidesPerView: 2 },
+            575: { slidesPerView: 1 },
+          }}
+        >
+          {MensProductData.map((product, index) => {
+            const isWishlisted = wishlist.includes(product.id);
+            return (
+              <SwiperSlide key={index} className='sneaker-card product-card group'>
+                <div className="relative aspect-3/4 overflow-hidden rounded-3xl bg-gray-100 mb-6 group cursor-pointer">
+                  <Link href={`/Pages/MensProducts/${product.id}`} className="block h-full w-full">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className={`object-cover transition-all duration-700 ease-in-out group-hover:scale-110 ${product.secondImage ? "group-hover:opacity-0" : ""}`}
+                    />
+
+                    {product.secondImage && (
+                      <Image
+                        src={product.secondImage}
+                        alt={`${product.title} second image`}
+                        fill
+                        className="object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out group-hover:scale-110"
+                      />
+                    )}
+                  </Link>
+                </div>
+
+                <div className="flex flex-col grow px-2">
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">{product.brand}</span>
+                  </div>
+
+                  <Link href={`/Pages/MensProducts/${product.id}`} className="group-hover:text-gray-600 transition-colors">
+                    <h2 className="Exo text-[15px] text-gray-900 font-semibold leading-tight mb-3 line-clamp-2 min-h-[20px]">
+                      {product.title}
+                    </h2>
+                  </Link>
+
+                  <div className='mt-auto'>
+                    {(product.lessPrice || product.off) ? (
+                      <div className='flex items-center gap-3 mb-2'>
+                        {product.lessPrice && (
+                          <h5 className='Exo text-sm font-medium line-through text-gray-400'>{product.lessPrice}</h5>
+                        )}
+                        {product.off && (
+                          <span className='bg-red-500 text-white px-2 py-0.5 rounded text-[10px] Exo font-bold uppercase'>
+                            {product.off}
+                          </span>
+                        )}
+                      </div>
+                    ) : (
+                      <div className='flex items-center mb-5'>
+                        <div className='w-6 h-[2px] bg-red-500 rounded-full'></div>
+                      </div>
+                    )}
+
+                    <div className='flex items-center gap-4 relative overflow-hidden'>
+                      <h5 className='Exo font-bold text-lg text-gray-900'>{product.price}</h5>
+
+                      <div className='flex items-center gap-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-500'>
+                        <Link href={`/Pages/MensProducts/${product.id}`}>
+                          <Icon
+                            icon="lets-icons:view"
+                            className='text-black hover:opacity-60 cursor-pointer transition-all duration-300'
+                            width="20"
+                            height="20"
+                          />
+                        </Link>
+                        <Icon
+                          icon={isWishlisted ? "eva:heart-fill" : "eva:heart-outline"}
+                          onClick={() => toggleWishlist(product.id)}
+                          className={`cursor-pointer transition-all duration-300 delay-75 ${isWishlisted ? "text-red-500" : "text-black hover:opacity-60"}`}
+                          width="20"
+                          height="20"
+                        />
+                        <Icon
+                          onClick={() => addToCart(product.id)}
+                          icon="akar-icons:cart"
+                          className='text-black hover:opacity-60 cursor-pointer transition-all duration-300 delay-150'
+                          width="20"
+                          height="20"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
       </div>
+
     </>
   )
 }
