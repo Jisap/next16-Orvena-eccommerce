@@ -71,8 +71,61 @@ const ProductDetails = () => {
           </div>
         </div>
 
-        <div>
+        <div className='w-full lg:w-1/2 flex flex-col gap-5'>
+          <div>
+            <span className='text-gray-700 bg-prim px-3 py-1 rounded-full font-semibold'>
+              {product.brand}
+            </span>
+          </div>
 
+          <h1 className='text-4xl lg:text-6xl font-medium Exo text-gray-800'>
+            {product.title}
+          </h1>
+
+          <div className='flex items-center gap-4'>
+            <h2 className='text-xl font-semibold Exo'>{product.price}</h2>
+            <span className='line-through text-gray-500'>{product.lessPrice}</span>
+            <span className='bg-red-500 text-white px-3 rounded Exo font-medium'>{product.off}</span>
+          </div>
+
+          <p className='text-gray-600 mt-5'>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore maiores, magni officiis soluta, odio dolorum adipisci dolores, illum amet dignissimos ab iusto quod aperiam deleniti fugit architecto quibusdam iure dicta.
+          </p>
+
+          <p className='text-gray-600'>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure illum consectetur dolorum tenetur voluptates sed quis, quos odit aperiam excepturi nisi unde, repellat delectus sint, molestias maiores esse aliquam error!
+          </p>
+
+          <div className='flex items-center gap-2'>
+            <h3 className='Exo tracking-wide font-semibold uppercase'>clothing-size &nbsp; -</h3>
+
+            <div className='flex gap-3 ml-4'>
+              {["XS", "S", "M", "L", "XL", "XX"].map((size) => (
+                <div key={size} className='relative group'>
+                  <button
+                    onClick={() => setSelectedSize(size)}
+                    className={`
+                      px-3 py-1 cursor-pointer border rounded text-sm font-medium transition 
+                      ${selectedSize === size
+                        ? "border-black bg-black text-white"
+                        : "border-gray-400 hover:border-black hover:text-black"
+                      }`
+                    }
+                  >
+                    {size}
+                  </button>
+
+                  <div className='absolute -bottom-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition pointer-events-none'>
+                    {size}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+
+          </div>
         </div>
       </div>
     </>
