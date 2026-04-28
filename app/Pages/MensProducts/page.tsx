@@ -97,32 +97,89 @@ const MensProducts = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-        {sortedProducts.slice(0, visibleCount).map((product: product, index: number) => (
-          <div key={index} className="sneaker-card product-card group">
-            <Link href={`/Pages/MensProducts/${product.id}`}>
-              <div className="overflow-hidden rounded-2xl relative group">
-                <Image
-                  src={product.image}
-                  alt={product.title}
-                  width={500}
-                  height={500}
-                  className={`w-full h-full transition-all duration-300 group-hover:scale-105 ${product.secondImage ? "group-hover:opacity-0" : ""}`}
-                />
+      <div className="px-[5%] lg:px-[10%] pb-32">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-12">
+          {sortedProducts.slice(0, visibleCount).map((product: product, index: number) => {
+            const isWishlisted = wishlist.includes(product.id);
 
-                {product.secondImage && (
-                  <Image
-                    src={product.secondImage}
-                    alt={`${product.title} second image`}
-                    width={500}
-                    height={500}
-                    className="w-full h-full absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all duration-300"
-                  />
-                )}
+            return (
+              <div key={index} className="product-card group flex flex-col h-full">
+                <div className="relative aspect-3/4 overflow-hidden rounded-3xl bg-gray-100 mb-6 group cursor-pointer">
+                  <Link href={`/Pages/MensProducts/${product.id}`} className="block h-full w-full">
+                    <Image
+                      src={product.image}
+                      alt={product.title}
+                      fill
+                      className={`object-cover transition-all duration-700 ease-in-out group-hover:scale-110 ${product.secondImage ? "group-hover:opacity-0" : ""}`}
+                    />
+
+                    {product.secondImage && (
+                      <Image
+                        src={product.secondImage}
+                        alt={`${product.title} second image`}
+                        fill
+                        className="object-cover absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all duration-700 ease-in-out group-hover:scale-110"
+                      />
+                    )}
+                  </Link>
+
+                  {/* Badges */}
+                  {product.off && (
+                    <div className="absolute top-4 left-4 bg-black text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full z-10">
+                      {product.off}
+                    </div>
+                  )}
+
+                  {/* Action Buttons */}
+                  <div className="absolute top-4 right-4 flex flex-col gap-2 translate-x-12 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 z-10">
+                    <button
+                      onClick={(e) => { e.preventDefault(); toggleWishlist(product.id); }}
+                      className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors shadow-sm ${isWishlisted ? 'bg-red-500 text-white' : 'bg-white text-gray-900 hover:bg-black hover:text-white'}`}
+                    >
+                      <Icon icon={isWishlisted ? "solar:heart-bold" : "solar:heart-linear"} className="text-xl" />
+                    </button>
+
+                    <button
+                      onClick={(e) => { e.preventDefault(); addToCart(product.id); }}
+                      className="w-10 h-10 bg-white text-gray-900 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors shadow-sm"
+                    >
+                      <Icon icon="solar:cart-large-minimalistic-linear" className="text-xl" />
+                    </button>
+                  </div>
+
+                  {/* Quick View Button */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 z-10">
+                    <Link
+                      href={`/Pages/MensProducts/${product.id}`}
+                      className="bg-white text-black text-xs font-bold uppercase tracking-widest px-6 py-3 rounded-full hover:bg-black hover:text-white transition-all whitespace-nowrap shadow-lg"
+                    >
+                      Quick View
+                    </Link>
+                  </div>
+                </div>
+
+                <div className="flex flex-col flex-grow px-2">
+                  <div className="flex justify-between items-start mb-2">
+                    <span className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">{product.brand}</span>
+                  </div>
+
+                  <Link href={`/Pages/MensProducts/${product.id}`} className="group-hover:text-gray-600 transition-colors">
+                    <h2 className="Exo text-[15px] text-gray-900 font-semibold leading-tight mb-3 line-clamp-2 min-h-[40px]">
+                      {product.title}
+                    </h2>
+                  </Link>
+
+                  <div className="mt-auto flex items-center gap-3">
+                    <span className="text-lg font-bold text-black">{product.price}</span>
+                    {product.lessPrice && (
+                      <span className="text-sm text-gray-400 line-through">{product.lessPrice}</span>
+                    )}
+                  </div>
+                </div>
               </div>
-            </Link>
-          </div>
-        ))}
+            );
+          })}
+        </div>
       </div>
     </>
   )
