@@ -14,6 +14,7 @@ import "swiper/css/autoplay";
 import { useCart } from '../../Cart/CartContext'
 import { useWishlist } from '../../Wishlist/WishlistContext'
 import { useParams } from 'next/navigation'
+import DiscoverButton from '@/app/Components/Button'
 
 
 
@@ -183,8 +184,31 @@ const ProductDetails = () => {
                 {isInCart ? "In Cart" : "Add to Cart"}
               </button>
             </div>
+
+            <DiscoverButton
+              onClick={() => toggleWishlist(product.id)}
+              className='py-4'
+            >
+              <div className='flex items-center gap-4'>
+                <Icon
+                  icon="eva:heart-outline"
+                  width={24}
+                  height={24}
+                />
+                Wishlist
+              </div>
+            </DiscoverButton>
           </div>
+
+          <p>
+            Categories: Active, Fashion Hoodies & Sweatsshirts, Jackets & Coats, Jeans, men Clothing, Pants, Shirts,
+            Shorts, Socks, Suit & sport Coats.
+          </p>
         </div>
+      </div>
+
+      <div>
+
       </div>
     </>
   )
