@@ -189,7 +189,7 @@ const MensProducts = () => {
         </div>
       </div>
 
-      <div className="flex justify-center mt-2">
+      <div className="flex justify-center mt-2 mb-10">
         <button
           className='px-8 py-3 cursor-pointer border border-gray-200 rounded hover:bg-gray-100 Exo font-medium'
           onClick={() => {
