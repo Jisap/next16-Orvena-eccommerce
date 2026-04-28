@@ -64,13 +64,36 @@ const MensProducts = () => {
       </div>
 
       <div className="px-[5%] lg:px-[10%] py-20">
-        <div className="py-5 mb-10 flex justify-between items-center">
-          <div className="Exo text-2xl font-semibold text-gray-700">Showing</div>
-          ({MensProductData.length}) products
-        </div>
+        <div className="py-5 mb-10 flex justify-between items-center border-b border-gray-100">
+          <div className="flex items-baseline gap-2">
+            <div className="Exo text-2xl font-semibold text-gray-700">Showing</div>
+            <div className="text-gray-500 font-medium">({MensProductData.length}) products</div>
+          </div>
 
-        <div className="relative cursor-pointer">
+          <div className="relative">
+            <button
+              onClick={() => setDropdownOpen(!dropdownOpen)}
+              className="px-4 py-2 cursor-pointer border border-gray-300 rounded hover:bg-gray-100 flex items-center gap-2 transition-colors duration-200"
+            >
+              <Icon icon="lucide:sort-desc" className="text-gray-500" />
+              <span className="text-gray-600 font-medium">Sort:</span>
+              <span className="text-gray-900">{sortOptions.find((o) => o.key === sortOption)?.label}</span>
+            </button>
 
+            {dropdownOpen && (
+              <div className="absolute right-0 mt-2 w-52 bg-white border border-gray-200 rounded shadow-xl z-20 overflow-hidden">
+                {sortOptions.map((option) => (
+                  <button
+                    key={option.key}
+                    onClick={() => { setSortOption(option.key); setDropdownOpen(false) }}
+                    className={`w-full text-left cursor-pointer px-4 py-3 hover:bg-gray-50 transition-colors duration-150 ${sortOption === option.key ? 'bg-gray-50 text-black font-semibold' : 'text-gray-600'}`}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </>
