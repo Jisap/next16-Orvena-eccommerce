@@ -96,6 +96,34 @@ const MensProducts = () => {
           </div>
         </div>
       </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        {sortedProducts.slice(0, visibleCount).map((product: product, index: number) => (
+          <div key={index} className="sneaker-card product-card group">
+            <Link href={`/Pages/MensProducts/${product.id}`}>
+              <div className="overflow-hidden rounded-2xl relative group">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  width={500}
+                  height={500}
+                  className={`w-full h-full transition-all duration-300 group-hover:scale-105 ${product.secondImage ? "group-hover:opacity-0" : ""}`}
+                />
+
+                {product.secondImage && (
+                  <Image
+                    src={product.secondImage}
+                    alt={`${product.title} second image`}
+                    width={500}
+                    height={500}
+                    className="w-full h-full absolute top-0 left-0 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  />
+                )}
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
     </>
   )
 }
