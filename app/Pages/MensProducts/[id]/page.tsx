@@ -123,8 +123,47 @@ const ProductDetails = () => {
             </div>
           </div>
 
-          <div>
+          <div className='flex items-center gap-3'>
+            <div className='flex items-center'>
+              <Icon
+                icon="fluent:checkmark-circle-sparkle-24-regular"
+                className='text-green-700'
+                width="24"
+                height="24"
+              />
+              <span className='ml-2 text-green-700 Exo font-semibold'>In Stock</span>
+            </div>
 
+            <div>
+              {selectedSize && (
+                <button
+                  onClick={handleClearSize}
+                  className='px-4 py-1 border border-red-500 text-red-500 font-medium rounded hover:bg-red-500 hover:text-white transition cursor-pointer'
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+          </div>
+
+          <div className='flex items-center gap-2'>
+            <div className='flex items-center bg-black p-1'>
+              <div className='bg-white flex items-center'>
+                <span
+                  onClick={() => quantity > 1 && setQuantity(quantity - 1)}
+                  className='px-3 py-1 text-2xl font-semibold cursor-pointer'
+                > - </span>
+
+                <span className='px-3 py-1 font-semibold border-e border-s border-gray-300'>
+                  {quantity}
+                </span>
+
+                <span
+                  onClick={() => setQuantity(quantity + 1)}
+                  className='px-3 py-1 text-2xl font-semibold cursor-pointer'
+                > + </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
