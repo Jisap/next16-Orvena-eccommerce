@@ -102,7 +102,7 @@ const WomenProducts = () => {
             return (
               <div key={index} className="product-card group flex flex-col h-full">
                 <div className="relative aspect-3/4 overflow-hidden rounded-3xl bg-gray-100 mb-6 group cursor-pointer">
-                  <Link href={`/Pages/MensProducts/${product.id}`} className="block h-full w-full">
+                  <Link href={`/Pages/WomensProduct/${product.id}`} className="block h-full w-full">
                     <Image
                       src={product.image}
                       alt={product.title}
@@ -126,7 +126,7 @@ const WomenProducts = () => {
                     <span className="text-[10px] uppercase tracking-widest text-gray-400 font-bold">{product.brand}</span>
                   </div>
 
-                  <Link href={`/Pages/MensProducts/${product.id}`} className="group-hover:text-gray-600 transition-colors">
+                  <Link href={`/Pages/WomensProduct/${product.id}`} className="group-hover:text-gray-600 transition-colors">
                     <h2 className="Exo text-[15px] text-gray-900 font-semibold leading-tight mb-3 line-clamp-2 min-h-[20px]">
                       {product.title}
                     </h2>
@@ -154,7 +154,7 @@ const WomenProducts = () => {
                       <h5 className='Exo font-bold text-lg text-gray-900'>{product.price}</h5>
 
                       <div className='flex items-center gap-3 translate-y-10 group-hover:translate-y-0 transition-transform duration-500'>
-                        <Link href={`/Pages/MensProducts/${product.id}`}>
+                        <Link href={`/Pages/WomensProduct/${product.id}`}>
                           <Icon
                             icon="lets-icons:view"
                             className='text-black hover:opacity-60 cursor-pointer transition-all duration-300'
