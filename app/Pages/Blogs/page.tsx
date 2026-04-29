@@ -83,7 +83,7 @@ const Blogs = () => {
         <div className='mt-20'>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4'>
             {BlogsData.map((blog, index) => (
-              <div key={index}>
+              <Link href={`/Pages/Blogs/${blog.id}`} key={index}>
                 <div className='blog-card group'>
                   <div className='overflow-hidden rounded-2xl'>
                     <Image
@@ -107,7 +107,7 @@ const Blogs = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
