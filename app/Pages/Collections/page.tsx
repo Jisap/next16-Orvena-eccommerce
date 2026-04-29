@@ -111,7 +111,7 @@ const Collections = () => {
   return (
     <>
       <div className='Page-section relative overflow-hidden'>
-        <div className='px-[5%] lg:px-[10%] py-40 pb-10'>
+        <div className='px-[5%] lg:px-[10%] py-30 md:py-32  pb-20 md:pb-25'>
           <DecoratedTitle>
             Our <br /> Collections
           </DecoratedTitle>
@@ -119,10 +119,10 @@ const Collections = () => {
       </div>
 
       {/* Casual fit collection */}
-      <div className='px-[5%] lg:px-[10%] py-10 lg:py-20'>
-        <div className='flex flex-col lg:flex-row gap-8 items-center'>
+      <div className='px-[5%] lg:px-[10%] py-8 md:py-12 lg:py-20'>
+        <div className='flex flex-col lg:flex-row gap-8 lg:gap-8 items-center'>
           <div className='w-full lg:w-1/2'>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-5'>
               {NewArrivalsData.slice(0, 3).map((item, index) => (
                 <div key={index} className='sneaker-card product-card group flex flex-col'>
                   <div className='overflow-hidden relative aspect-square group bg-gray-100 rounded-lg'>
@@ -195,29 +195,29 @@ const Collections = () => {
           </div>
 
           <div className='w-full lg:w-1/2 bg-[#f8f9fa] rounded-lg'>
-            <div className='p-20'>
-              <h2 className='Exo text-4xl mb-5 font-semibold text-gray-800'>
+            <div className='p-6 sm:p-10 md:p-14 lg:p-16 xl:p-20'>
+              <h2 className='Exo text-2xl sm:text-3xl lg:text-4xl mb-4 font-semibold text-gray-800'>
                 CASUAL FIT SELECTION
               </h2>
 
-              <p className='Exo text-lg mb-5 text-gray-700'>
+              <p className='Exo text-sm sm:text-base lg:text-lg mb-4 text-gray-700'>
                 Globally reintermediate intermandated best practices with best-of-breed e-markets. Dinamically matrix
                 complelling architectures for cooperative catalyst for change.
               </p>
 
-              <p className='Exo text-lg mb-5 text-gray-700'>
+              <p className='Exo text-sm sm:text-base lg:text-lg mb-4 text-gray-700'>
                 The combination of high quality product, user-friendly interface and flexible customization makes this
                 theme an ideal solution for any online store.
               </p>
 
-              <p className='Exo text-lg mb-5 text-gray-700'>
+              <p className='Exo text-sm sm:text-base lg:text-lg mb-4 text-gray-700'>
                 Our collection is designed to provide comfort, style, and quality. Remember that you can always return or exchange.
               </p>
             </div>
           </div>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-5 pt-20'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-5 pt-8 lg:pt-20'>
           {NewArrivalsData.slice(3, 9).map((item, index) => (
             <div key={index} className='sneaker-card product-card group'>
               <div className='overflow-hidden relative aspect-square group bg-gray-100 rounded-lg'>
@@ -290,32 +290,32 @@ const Collections = () => {
       </div>
 
       {/* Running collection */}
-      <div className='px-[5%] lg:px-[10%] py-10 lg:py-20'>
+      <div className='px-[5%] lg:px-[10%] py-8 md:py-12 lg:py-20'>
         <div className='flex flex-col lg:flex-row gap-5'>
-          <div className='w-full lg:w-1/2 bg-[#f8f9fa] rounded'>
-            <div className='p-20'>
-              <h2 className='Exo text-4xl mb-5 font-semibold text-gray-800'>
+          <div className='w-full lg:w-1/2 bg-[#f8f9fa] rounded order-1 lg:order-none'>
+            <div className='p-6 sm:p-10 md:p-14 lg:p-16 xl:p-20'>
+              <h2 className='Exo text-2xl sm:text-3xl lg:text-4xl mb-4 font-semibold text-gray-800'>
                 RUNNING COLLECTION
               </h2>
 
-              <p className='Exo text-lg mb-5 text-gray-700'>
+              <p className='Exo text-sm sm:text-base lg:text-lg mb-4 text-gray-700'>
                 Globally reintermediate intermandated best practices with best-of-breed e-markets. Dinamically matrix
                 complelling architectures for cooperative catalyst for change.
               </p>
 
-              <p className='Exo text-lg mb-5 text-gray-700'>
+              <p className='Exo text-sm sm:text-base lg:text-lg mb-4 text-gray-700'>
                 The combination of high quality product, user-friendly interface and flexible customization makes this
                 theme an ideal solution for any online store.
               </p>
 
-              <p className='Exo text-lg mb-5 text-gray-700'>
+              <p className='Exo text-sm sm:text-base lg:text-lg mb-4 text-gray-700'>
                 Our collection is designed to provide comfort, style, and quality. Remember that you can always return or exchange.
               </p>
             </div>
           </div>
 
-          <div className='w-full lg:w-1/2'>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+          <div className='w-full lg:w-1/2 order-2 lg:order-none'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-5'>
               {SneakerData.slice(0, 3).map((item, index) => (
                 <div key={index}>
                   <div className="sneaker-card product-card group">
@@ -380,7 +380,7 @@ const Collections = () => {
 
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 pt-10'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-5 md:gap-8 pt-6 lg:pt-10'>
           {SneakerData.slice(3, 9).map((item, index) => (
             <div key={index}>
               <div className="sneaker-card product-card group">
