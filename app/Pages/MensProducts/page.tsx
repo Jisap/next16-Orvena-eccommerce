@@ -56,7 +56,7 @@ const MensProducts = () => {
       <div className='Page-section relative overflow-hidden'>
         <div className='px-[5%] lg:px-[10%] py-40 pb-10 relative z-10'>
           <DecoratedTitle>
-            Mens <br /> Products
+            Mens <br /> Clothing
           </DecoratedTitle>
 
         </div>
