@@ -26,7 +26,7 @@ const DecoratedTitle = ({
 
       <div className={`absolute ${topGap} left-[-100vw] ${leftLineEnd} ${lineColor} ${lineHeight} z-0 pointer-events-none`} />
 
-      <h2 className={`text-5xl md:text-7xl lg:text-9xl text-gray-300 font-bold Exo uppercase relative z-10 ${className}`}>
+      <h2 className={`text-gray-300 font-bold Exo uppercase relative z-10 ${className.includes('text-') ? '' : 'text-5xl md:text-7xl lg:text-9xl'} ${className}`}>
         {children}
       </h2>
 
