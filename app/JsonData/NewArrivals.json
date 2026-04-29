@@ -58,5 +58,35 @@
     "lessPrice": "$35.00",
     "price": "$22.00",
     "off": "-31% oFF"
+  },
+  {
+    "id": "newA7",
+    "image": "/Images/NewArrival-9.webp",
+    "secondImage": "/Images/NewArrival-10.webp",
+    "brand": "Iguera",
+    "title": "Oversized cotton shirt with front pocket detail",
+    "lessPrice": "$110.00",
+    "price": "$92.00",
+    "off": "-16% oFF"
+  },
+  {
+    "id": "newA8",
+    "image": "/Images/NewArrival-10.webp",
+    "secondImage": "",
+    "brand": "Dumark",
+    "title": "High waist sport shorts with contrast trim",
+    "lessPrice": "$60.00",
+    "price": "$48.00",
+    "off": "-20% oFF"
+  },
+  {
+    "id": "newA9",
+    "image": "/Images/NewArrival-11.webp",
+    "secondImage": "/Images/NewArrival-13.webp",
+    "brand": "Zenuro",
+    "title": "Relaxed fit hoodie in soft fleece fabric",
+    "lessPrice": "$120.00",
+    "price": "$95.00",
+    "off": "-21% oFF"
   }
 ]

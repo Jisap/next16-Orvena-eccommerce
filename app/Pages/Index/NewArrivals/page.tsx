@@ -29,7 +29,7 @@ const NewArrivals = () => {
         </div>
 
         <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-6 gap-x-5 gap-y-10'>
-          {NewArrivalsData.map((item, index) => (
+          {NewArrivalsData.slice(0, 6).map((item, index) => (
             <div key={index} className='sneaker-card product-card group flex flex-col'>
               <div className='overflow-hidden relative aspect-square group bg-gray-100 rounded-lg'>
                 <Image
