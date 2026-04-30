@@ -14,17 +14,32 @@ import Brands from './Brands/page'
 
 
 
+import Reveal from '../../Components/Animations/Reveal'
+
+
 const Index = () => {
   return (
     <>
       <Hero />
-      <Discover />
-      <Banner />
-      <Sneakers />
-      <ShopBannerCategory />
+      <Reveal direction="up" delay={0.2}>
+        <Discover />
+      </Reveal>
+      <Reveal direction="up">
+        <Banner />
+      </Reveal>
+      <Reveal direction="left">
+        <Sneakers />
+      </Reveal>
+      <Reveal direction="right">
+        <ShopBannerCategory />
+      </Reveal>
       <HotDealsBanner />
-      <NewArrivals />
-      <Blogs />
+      <Reveal direction="up">
+        <NewArrivals />
+      </Reveal>
+      <Reveal direction="up">
+        <Blogs />
+      </Reveal>
       <FollowUs />
       <Brands />
     </>

@@ -6,6 +6,8 @@ import { WishlistProvider } from "./Pages/Wishlist/WishlistContext";
 import { CartProvider } from "./Pages/Cart/CartContext";
 import { Toaster } from "react-hot-toast";
 import Footer from "./Components/Footer/Footer";
+import LenisProvider from "./Components/Providers/LenisProvider";
+import GSAPInitializer from "./Components/Providers/GSAPInitializer";
 
 
 const exo = Exo({
@@ -45,14 +47,17 @@ export default function RootLayout({
       className={`${exo.variable} ${luxuriousRoman.variable} ${geistSans.variable} ${geistMono.variable} `}
     >
       <body className="min-h-full flex flex-col">
-        <WishlistProvider>
-          <CartProvider>
-            <Navbar />
-            {children}
-            <Footer />
-            <Toaster position="top-right" />
-          </CartProvider>
-        </WishlistProvider>
+        <GSAPInitializer />
+        <LenisProvider>
+          <WishlistProvider>
+            <CartProvider>
+              <Navbar />
+              {children}
+              <Footer />
+              <Toaster position="top-right" />
+            </CartProvider>
+          </WishlistProvider>
+        </LenisProvider>
       </body>
     </html>
   );
